@@ -1,10 +1,54 @@
 [
   {
     "query": "A person walking a dog in the park",
-    "output": null,
+    "output": {
+      "scene_description": "A sunny Saturday morning, John takes his energetic golden retriever, Max, for a stroll around the local park. They enjoy the fresh air and watch children playing on the swings.",
+      "objects": [
+        {
+          "name": "John",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "Max",
+          "attributes": {
+            "color": "golden retriever",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing on swings"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "",
+            "position": "playing football"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        }
+      ],
+      "actions": [
+        "walking a dog",
+        "watching children play",
+        "playing football"
+      ]
+    },
     "info": {
-      "error": "json_parse_error",
-      "details": "Expecting ',' delimiter: line 19 column 36 (char 393)"
+      "score": 1.0,
+      "issues": []
     }
   },
   {
@@ -12,7 +56,7 @@
     "output": null,
     "info": {
       "error": "json_parse_error",
-      "details": "Expecting ',' delimiter: line 19 column 88 (char 585)"
+      "details": "Expecting ',' delimiter: line 11 column 6 (char 441)"
     }
   },
   {
@@ -20,7 +64,7 @@
     "output": null,
     "info": {
       "error": "json_parse_error",
-      "details": "Expecting ',' delimiter: line 26 column 51 (char 646)"
+      "details": "Expecting ',' delimiter: line 15 column 6 (char 523)"
     }
   }
 ]
