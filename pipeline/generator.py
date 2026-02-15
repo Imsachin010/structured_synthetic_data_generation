@@ -7,7 +7,7 @@ from prompt_templates import BASE_PROMPT
 from hyde import generate_hyde
 from rag_module import SimpleRAG
 from validator import validate_output
-from evaluator import consistency_score, log_error
+from evaluator import consistency_score, log_error, query_alignment_score
 
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "generated_outputs.json")
@@ -59,12 +59,17 @@ def llm_generate(prompt):
 # ----------------------------
 # Main Generation Function
 # ----------------------------
-def generate_scene(query, use_hyde=True, use_rag=True, rag=None, llm_fn=None):
+def generate_scene(query, use_hyde=True, use_rag=True, rag=None, llm_fn=None, rag_top=3, rag_threshold=0.1):
     llm_fn = llm_fn or llm_generate
     rag = rag or SimpleRAG.from_file(RAW_QUERIES)
 
     hyde_doc = generate_hyde(query, llm_fn) if use_hyde else None
-    retrieved = rag.retrieve(query, top_k=3) if use_rag else []
+    if use_rag:
+        raw_retrieved = rag.retrieve(query, top_k=rag_top)
+        retrieved = [r for r in raw_retrieved if r["score"] >= rag_threshold]
+    else:
+        retrieved = []
+
 
     context_parts = []
     if hyde_doc:
@@ -126,7 +131,13 @@ Malformed JSON:
     # Evaluation
     # ----------------------------
     score, issues = consistency_score(parsed)
-    return parsed, {"score": score, "issues": issues}
+    alignment = query_alignment_score(query, parsed)
+    return parsed, {
+    "score": score,
+    "alignment_score": alignment,
+    "issues": issues
+    }
+
 
 
 # ----------------------------
@@ -154,7 +165,7 @@ def run_demo():
             item['query'],
             use_hyde=True,
             use_rag=True,
-            rag=rag
+            rag=rag, rag_top=3, rag_threshold=0.2
         )
         outputs.append({
             "query": item['query'],
