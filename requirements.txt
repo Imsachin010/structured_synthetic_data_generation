@@ -1,0 +1,8 @@
+jsonschema>=4.0.0
+scikit-learn>=1.0
+numpy>=1.21
+tqdm>=4.0
+# optional (for real VLM experiments)
+# torch
+# torchvision
+# transformers
