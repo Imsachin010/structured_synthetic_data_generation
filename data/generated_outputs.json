@@ -1,0 +1,26 @@
+[
+  {
+    "query": "A person walking a dog in the park",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 19 column 36 (char 393)"
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 19 column 88 (char 585)"
+    }
+  },
+  {
+    "query": "A group of kids playing football",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 26 column 51 (char 646)"
+    }
+  }
+]

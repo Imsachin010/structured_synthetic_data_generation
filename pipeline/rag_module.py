@@ -30,7 +30,7 @@ class SimpleRAG:
         return obj
 
     def retrieve(self, query, top_k=3):
-        if not self.tfidf_matrix or not self.corpus:
+        if self.tfidf_matrix is None or len(self.corpus) == 0:
             return []
         q_vec = self.vectorizer.transform([query])
         cosine_similarities = linear_kernel(q_vec, self.tfidf_matrix).flatten()

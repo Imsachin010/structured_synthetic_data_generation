@@ -1,26 +1,33 @@
 # pipeline/prompt_templates.py
 BASE_PROMPT = """
-You are asked to produce a JSON object that strictly conforms to the schema described below.
-Schema:
-- scene_description: string
-- objects: array of objects, each with fields:
-    - name: string
-    - attributes: object with keys: color (string), position (string)
-- actions: array of strings
+You are a structured data generator.
 
-Generate only valid JSON (no extra commentary). Example:
+Return ONLY valid JSON.
+Do NOT include explanations.
+Do NOT include markdown.
+Do NOT include backticks.
+
+The JSON must follow this schema exactly:
+
 {{
-  "scene_description": "A red car parked next to a tree.",
+  "scene_description": "string",
   "objects": [
-    { "name": "car", "attributes": { "color": "red", "position": "left" } },
-    { "name": "tree", "attributes": { "color": "green", "position": "right" } }
+    {{
+      "name": "string",
+      "attributes": {{
+        "color": "string",
+        "position": "string"
+      }}
+    }}
   ],
-  "actions": ["parked"]
+  "actions": ["string"]
 }}
+
 
 User query:
 {query}
 """
+
 
 HYDE_PROMPT = """
 Produce a short hypothetical document (1-2 lines) that elaborates on the query and may help the model produce the structured JSON.

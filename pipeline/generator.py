@@ -1,11 +1,11 @@
 # pipeline/generator.py
 import json
 import os
-from .prompt_templates import BASE_PROMPT
-from .hyde import generate_hyde
-from .rag_module import SimpleRAG
-from .validator import validate_output
-from .evaluator import consistency_score, log_error
+from prompt_templates import BASE_PROMPT
+from hyde import generate_hyde
+from rag_module import SimpleRAG
+from validator import validate_output
+from evaluator import consistency_score, log_error
 
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "generated_outputs.json")
@@ -13,27 +13,28 @@ RAW_QUERIES = os.path.join(DATA_DIR, "raw_queries.json")
 
 os.makedirs(DATA_DIR, exist_ok=True)
 
+import ollama
+
 def llm_generate(prompt):
-    """
-    Pluggable single entrypoint for LLM generation.
-    Replace this with Ollama/OpenAI/your local LLM adapter.
-    The function should return a string (response text).
-    """
-    # --- naive deterministic stub when no LLM is configured ---
-    # If you want to integrate real LLM, replace this function to call your API.
-    # For minimal reproducible demo, we synthesize JSON from the prompt.
-    # IMPORTANT: the demo returns ALWAYS valid JSON matching SCHEMA for walk-through.
-    # In practice, LLMs may return invalid JSON which validator.py will catch.
-    example = {
-        "scene_description": "A person walks their dog next to a bench.",
-        "objects": [
-            {"name": "person", "attributes": {"color": "blue", "position": "center"}},
-            {"name": "dog", "attributes": {"color": "brown", "position": "left"}},
-            {"name": "bench", "attributes": {"color": "grey", "position": "right"}}
-        ],
-        "actions": ["walking"]
-    }
-    return json.dumps(example)
+    try:
+        response = ollama.chat(
+            model="llama3:8b",
+            messages=[
+                {"role": "system", "content": "You must output ONLY valid JSON."},
+                {"role": "user", "content": prompt}
+            ],
+            options={
+                "temperature": 0.3,
+                "num_predict": 512
+            }
+        )
+
+        return response["message"]["content"]
+
+    except Exception as e:
+        print("Ollama error:", e)
+        raise
+
 
 def generate_scene(query, use_hyde=True, use_rag=True, rag=None, llm_fn=None):
     llm_fn = llm_fn or llm_generate

@@ -1,5 +1,5 @@
 # pipeline/hyde.py
-from .prompt_templates import HYDE_PROMPT
+from prompt_templates import HYDE_PROMPT
 import json
 
 def generate_hyde(query, llm_fn=None):
