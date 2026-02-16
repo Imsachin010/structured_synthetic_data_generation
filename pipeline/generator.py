@@ -8,6 +8,8 @@ from hyde import generate_hyde
 from rag_module import SimpleRAG
 from validator import validate_output
 from evaluator import consistency_score, log_error, query_alignment_score
+from vlm_module import generate_image_caption
+from embedding_module import EmbeddingRetriever
 
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "generated_outputs.json")
@@ -22,10 +24,6 @@ MAX_RETRIES = 2
 # JSON Extraction Utility
 # ----------------------------
 def extract_json_block(text):
-    """
-    Extract first JSON block from LLM output.
-    Protects against extra commentary or markdown.
-    """
     match = re.search(r"\{.*\}", text, re.DOTALL)
     if match:
         return match.group(0)
@@ -53,7 +51,7 @@ def enforce_minimum_schema(parsed):
 
 
 # ----------------------------
-# LLM Adapter (Ollama)
+# LLM Adapter
 # ----------------------------
 def llm_generate(prompt):
     try:
@@ -65,7 +63,7 @@ def llm_generate(prompt):
                     "content": (
                         "Return ONLY valid JSON. "
                         "Do not use markdown. "
-                        "Do not invent names or brand names. "
+                        "Do not invent names or brands. "
                         "Do not introduce entities not in the query or provided context. "
                         "Keep descriptions literal and minimal."
                     ),
@@ -90,9 +88,12 @@ def llm_generate(prompt):
 # ----------------------------
 def generate_scene(
     query,
+    image_path=None,
     use_hyde=True,
     use_rag=True,
+    use_embedding_rag=False,
     rag=None,
+    embedding_retriever=None,
     llm_fn=None,
     rag_top=3,
     rag_threshold=0.2,
@@ -100,17 +101,40 @@ def generate_scene(
     llm_fn = llm_fn or llm_generate
     rag = rag or SimpleRAG.from_file(RAW_QUERIES)
 
+    # ----------------------------
+    # VLM Caption Integration
+    # ----------------------------
+    if image_path:
+        caption = generate_image_caption(image_path)
+        if caption:
+            query = query + "\nImage context:\n" + caption
+
+    # ----------------------------
+    # HyDE Expansion
+    # ----------------------------
     hyde_doc = generate_hyde(query, llm_fn) if use_hyde else None
 
-    if use_rag:
+    # ----------------------------
+    # Retrieval (Embedding or TF-IDF)
+    # ----------------------------
+    retrieved = []
+
+    if use_embedding_rag and embedding_retriever:
+        raw_retrieved = embedding_retriever.retrieve(query, top_k=rag_top)
+        retrieved = raw_retrieved
+
+    elif use_rag and rag:
         raw_retrieved = rag.retrieve(query, top_k=rag_top)
         retrieved = [r for r in raw_retrieved if r["score"] >= rag_threshold]
-    else:
-        retrieved = []
 
+    # ----------------------------
+    # Build Context
+    # ----------------------------
     context_parts = []
+
     if hyde_doc:
         context_parts.append(hyde_doc)
+
     if retrieved:
         context_parts += [r["doc"] for r in retrieved]
 
@@ -156,7 +180,7 @@ Malformed JSON:
     parsed = enforce_minimum_schema(parsed)
 
     # ----------------------------
-    # Schema Validation + Repair Loop
+    # Schema Validation + Repair
     # ----------------------------
     is_valid, errors = validate_output(parsed)
 
@@ -231,6 +255,15 @@ def run_demo():
             json.dump(sample, f, indent=2)
 
     rag = SimpleRAG.from_file(RAW_QUERIES)
+
+    # Optional embedding retriever example
+    documents = [
+        "A person walking a dog in a park.",
+        "A red car parked near a tree.",
+        "Children playing football in a field."
+    ]
+    embedding_retriever = EmbeddingRetriever(documents)
+
     outputs = []
 
     with open(RAW_QUERIES, "r", encoding="utf-8") as f:
@@ -238,13 +271,16 @@ def run_demo():
 
     for item in queries:
         print(f"Generating for: {item['query']}")
+
         parsed, info = generate_scene(
             item["query"],
+            image_path=None,                 # provide image path if testing VLM
             use_hyde=True,
-            use_rag=True,
-            rag=rag,
+            use_rag=False,
+            use_embedding_rag=True,
+            embedding_retriever=embedding_retriever,
             rag_top=3,
-            rag_threshold=0.3,  # slightly stricter filtering
+            rag_threshold=0.3,
         )
 
         outputs.append(
