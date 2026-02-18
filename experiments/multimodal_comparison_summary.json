@@ -1,0 +1,17 @@
+{
+  "stage1_embedding_only": {
+    "validity_rate": 0.667,
+    "avg_structural_score": 0.75,
+    "avg_alignment_score": 0.393
+  },
+  "stage2_embedding_plus_vlm_matched": {
+    "validity_rate": 1.0,
+    "avg_structural_score": 0.833,
+    "avg_alignment_score": 0.085
+  },
+  "stage3_tfidf_rag": {
+    "validity_rate": 1.0,
+    "avg_structural_score": 0.833,
+    "avg_alignment_score": 0.373
+  }
+}

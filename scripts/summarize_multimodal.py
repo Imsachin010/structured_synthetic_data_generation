@@ -12,7 +12,12 @@ OUT_MD = "experiments/multimodal_comparison.md"
 
 def summarize_stage(filepath):
     with open(filepath, "r") as f:
-        data = json.load(f)
+        content = f.read().strip()
+        if not content:
+            print(f"Skipping empty file: {filepath}")
+            return None
+        data = json.loads(content)
+
 
     total = len(data)
     valid = 0

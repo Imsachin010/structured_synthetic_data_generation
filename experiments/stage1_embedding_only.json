@@ -2,24 +2,24 @@
   {
     "query": "A person walking a dog in the park",
     "output": {
-      "scene_description": "A sunny day with green grass and trees surrounding the walking path.",
+      "scene_description": "A sunny afternoon, a person wearing casual clothing and carrying a leash walks their energetic golden retriever around the park. The atmosphere is peaceful with birds chirping and children playing in the distance.",
       "objects": [
         {
           "name": "person",
           "attributes": {
-            "color": "",
+            "color": "casual clothing",
             "position": "walking"
           }
         },
         {
           "name": "dog",
           "attributes": {
-            "color": "",
+            "color": "golden retriever",
             "position": "being walked"
           }
         },
         {
-          "name": "red car",
+          "name": "car",
           "attributes": {
             "color": "red",
             "position": "parked near a tree"
@@ -28,8 +28,41 @@
         {
           "name": "children",
           "attributes": {
-            "color": "",
+            "color": "various",
             "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "parking",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.2857142857142857,
+      "issues": []
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": {
+      "scene_description": "A bright red sports car is parked beside a tall oak tree with sprawling branches. The surrounding area is quiet and peaceful.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "beside the tree"
+          }
+        },
+        {
+          "name": "tall oak tree",
+          "attributes": {
+            "color": "brown",
+            "position": "near the red car"
           }
         }
       ],
@@ -37,87 +70,68 @@
     },
     "info": {
       "score": 0.5,
-      "alignment_score": 0.2857142857142857,
+      "alignment_score": 0.5,
       "issues": [
         "no actions"
       ]
     }
   },
   {
-    "query": "A red car parked near a tree",
-    "output": {
-      "scene_description": "A bright red vehicle, likely an automobile, has been left stationary near a deciduous tree.",
-      "objects": [
-        {
-          "name": "red car",
-          "attributes": {
-            "color": "red",
-            "position": "near a tree"
-          }
-        },
-        {
-          "name": "tree",
-          "attributes": {
-            "type": "deciduous",
-            "position": "near the red car",
-            "color": ""
-          }
-        }
-      ],
-      "actions": [
-        "parked"
-      ]
-    },
-    "info": {
-      "score": 1.0,
-      "alignment_score": 0.5,
-      "issues": []
-    }
-  },
-  {
     "query": "A group of kids playing football",
     "output": {
-      "scene_description": "A group of children aged 8-12 are gathered in a local park, enthusiastically playing a game of soccer.",
+      "scene_description": "Group of kids playing football",
       "objects": [
         {
           "name": "Football",
           "attributes": {
             "color": "Brown",
-            "position": "On the field"
+            "position": "Field"
           }
         },
         {
           "name": "Children",
           "attributes": {
             "color": "Various",
-            "position": "On the field"
+            "position": [
+              "Field",
+              "Goal"
+            ]
           }
         },
         {
-          "name": "Red car",
+          "name": "Car",
           "attributes": {
             "color": "Red",
-            "position": "Near a tree"
+            "position": "Near tree"
           }
         },
         {
           "name": "Dog",
           "attributes": {
-            "color": "Various",
-            "position": "On a leash with the person"
+            "color": "Unknown",
+            "position": "Walking with person"
+          }
+        },
+        {
+          "name": "Person",
+          "attributes": {
+            "color": "Unknown",
+            "position": "Walking dog"
           }
         }
       ],
       "actions": [
-        "Playing soccer",
-        "Walking a dog",
-        "Parking a car"
+        "Playing",
+        "Laughing",
+        "Shouting",
+        "Walking"
       ]
     },
     "info": {
-      "score": 1.0,
-      "alignment_score": 0.16666666666666666,
-      "issues": []
+      "error": "validation_error",
+      "details": [
+        "objects.1.attributes.position: ['Field', 'Goal'] is not of type 'string'"
+      ]
     }
   }
 ]

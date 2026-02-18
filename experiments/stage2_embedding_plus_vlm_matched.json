@@ -1,0 +1,114 @@
+[
+  {
+    "query": "A person walking a dog in the park",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "young adult male",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "white",
+            "position": "on a leash being walked"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.023809523809523808,
+      "issues": []
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": {
+      "scene_description": "A residential area, possibly near a park or a quiet neighborhood street",
+      "objects": [
+        {
+          "name": "red sports car",
+          "attributes": {
+            "color": "red",
+            "position": "parked"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the car"
+          }
+        }
+      ],
+      "actions": [
+        "none"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.06349206349206349,
+      "issues": []
+    }
+  },
+  {
+    "query": "A group of kids playing football",
+    "output": {
+      "scene_description": "children playing football in a field",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the ground"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "on a leash with the person"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.16666666666666666,
+      "issues": [
+        "no actions"
+      ]
+    }
+  }
+]

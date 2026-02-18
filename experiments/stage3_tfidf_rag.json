@@ -2,25 +2,25 @@
   {
     "query": "A person walking a dog in the park",
     "output": {
-      "scene_description": "A person is walking their dog in a public park.",
+      "scene_description": "A sunny afternoon at the local park",
       "objects": [
         {
-          "name": "person",
+          "name": "Person",
           "attributes": {
-            "color": "unknown",
-            "position": ""
+            "color": "human",
+            "position": "walking"
           }
         },
         {
-          "name": "dog",
+          "name": "Dog",
           "attributes": {
-            "color": "golden retriever or labrador",
-            "position": "being walked by the person"
+            "color": "canine",
+            "position": "off-leash playtime"
           }
         }
       ],
       "actions": [
-        "walking"
+        "walking a dog"
       ]
     },
     "info": {
@@ -32,20 +32,22 @@
   {
     "query": "A red car parked near a tree",
     "output": {
-      "scene_description": "A bright red sports car, with a sleek design, is parked beside a tall oak tree. The tree's branches stretch out towards the car, casting dappled shadows on its shiny surface.",
+      "scene_description": "A red sports car, likely a Ferrari or Lamborghini, was parked near a tall oak tree with sprawling branches. The surrounding area appeared to be a private driveway or a parking lot for a luxury residence.",
       "objects": [
         {
           "name": "red car",
           "attributes": {
             "color": "red",
-            "position": "beside a tall oak tree"
+            "position": "near a tall oak tree"
           }
         },
         {
-          "name": "tall oak tree",
+          "name": "tree",
           "attributes": {
-            "position": "beside the red car",
-            "color": ""
+            "type": "oak",
+            "description": "tall with sprawling branches",
+            "color": "",
+            "position": ""
           }
         }
       ],
@@ -62,38 +64,41 @@
   {
     "query": "A group of kids playing football",
     "output": {
-      "scene_description": "Group of kids playing informal football in a local park",
+      "scene_description": "A group of children, aged 8-12, are playing a friendly game of football in a local park.",
       "objects": [
         {
-          "name": "Ball",
+          "name": "Football",
           "attributes": {
-            "color": "brown",
-            "position": "in play"
-          }
-        },
-        {
-          "name": "Goalposts",
-          "attributes": {
-            "color": "white",
-            "position": "at the edge of the park"
+            "color": "Brown",
+            "position": "On the grass"
           }
         },
         {
           "name": "Kids",
           "attributes": {
-            "color": "varied",
-            "position": "scattered around the field"
+            "color": "Varied",
+            "position": "Playing on the field"
+          }
+        },
+        {
+          "name": "Park benches",
+          "attributes": {
+            "color": "Green",
+            "position": "Along the sidelines"
           }
         }
       ],
-      "actions": []
+      "actions": [
+        "Kicking the ball",
+        "Running with the ball",
+        "Passing to teammates",
+        "Shouting encouragement"
+      ]
     },
     "info": {
-      "score": 0.5,
-      "alignment_score": 0.16666666666666666,
-      "issues": [
-        "no actions"
-      ]
+      "score": 1.0,
+      "alignment_score": 0.3333333333333333,
+      "issues": []
     }
   }
 ]
