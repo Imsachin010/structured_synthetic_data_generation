@@ -3,13 +3,14 @@ import os
 import re
 import ollama
 
-from prompt_templates import BASE_PROMPT
-from hyde import generate_hyde
-from rag_module import SimpleRAG
-from validator import validate_output
-from evaluator import consistency_score, log_error, query_alignment_score
-from vlm_module import generate_image_caption
-from embedding_module import EmbeddingRetriever
+from pipeline.prompt_templates import BASE_PROMPT
+from pipeline.hyde import generate_hyde
+from pipeline.rag_module import SimpleRAG
+from pipeline.validator import validate_output
+from pipeline.evaluator import consistency_score, log_error, query_alignment_score
+from pipeline.vlm_module import generate_image_caption
+from pipeline.embedding_module import EmbeddingRetriever
+
 
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "generated_outputs.json")

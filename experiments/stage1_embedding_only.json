@@ -1,0 +1,123 @@
+[
+  {
+    "query": "A person walking a dog in the park",
+    "output": {
+      "scene_description": "A sunny day with green grass and trees surrounding the walking path.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.2857142857142857,
+      "issues": [
+        "no actions"
+      ]
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": {
+      "scene_description": "A bright red vehicle, likely an automobile, has been left stationary near a deciduous tree.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "type": "deciduous",
+            "position": "near the red car",
+            "color": ""
+          }
+        }
+      ],
+      "actions": [
+        "parked"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.5,
+      "issues": []
+    }
+  },
+  {
+    "query": "A group of kids playing football",
+    "output": {
+      "scene_description": "A group of children aged 8-12 are gathered in a local park, enthusiastically playing a game of soccer.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "Various",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "On a leash with the person"
+          }
+        }
+      ],
+      "actions": [
+        "Playing soccer",
+        "Walking a dog",
+        "Parking a car"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.16666666666666666,
+      "issues": []
+    }
+  }
+]

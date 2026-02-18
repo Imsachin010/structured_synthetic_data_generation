@@ -1,6 +1,6 @@
 # Structured LLM/VLM Dataset Generation & Evaluation Pipeline
 
-A modular framework for **reliable structured dataset generation using LLMs**, with schema enforcement, grounding control, and automated evaluation.
+A modular framework for **reliable structured dataset generation using LLMs/ VLMs**, with schema enforcement, grounding control, and automated evaluation.
 
 ---
 

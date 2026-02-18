@@ -1,5 +1,9 @@
 import json
 import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+import json
 from pipeline.generator import generate_scene
 from pipeline.rag_module import SimpleRAG
 from pipeline.embedding_module import EmbeddingRetriever
@@ -71,7 +75,7 @@ if __name__ == "__main__":
         {
             "use_rag": False,
             "use_embedding_rag": True,
-            "image_path": "images/sample.jpg"  # change to actual test image
+            "image_path": "./images/car.jpg"  # provide a valid image path for testing VLM
         }
     )
 

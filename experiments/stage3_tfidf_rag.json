@@ -1,0 +1,99 @@
+[
+  {
+    "query": "A person walking a dog in the park",
+    "output": {
+      "scene_description": "A person is walking their dog in a public park.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "unknown",
+            "position": ""
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden retriever or labrador",
+            "position": "being walked by the person"
+          }
+        }
+      ],
+      "actions": [
+        "walking"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.2857142857142857,
+      "issues": []
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": {
+      "scene_description": "A bright red sports car, with a sleek design, is parked beside a tall oak tree. The tree's branches stretch out towards the car, casting dappled shadows on its shiny surface.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "beside a tall oak tree"
+          }
+        },
+        {
+          "name": "tall oak tree",
+          "attributes": {
+            "position": "beside the red car",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.5,
+      "issues": [
+        "no actions"
+      ]
+    }
+  },
+  {
+    "query": "A group of kids playing football",
+    "output": {
+      "scene_description": "Group of kids playing informal football in a local park",
+      "objects": [
+        {
+          "name": "Ball",
+          "attributes": {
+            "color": "brown",
+            "position": "in play"
+          }
+        },
+        {
+          "name": "Goalposts",
+          "attributes": {
+            "color": "white",
+            "position": "at the edge of the park"
+          }
+        },
+        {
+          "name": "Kids",
+          "attributes": {
+            "color": "varied",
+            "position": "scattered around the field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.16666666666666666,
+      "issues": [
+        "no actions"
+      ]
+    }
+  }
+]

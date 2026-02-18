@@ -1,0 +1,116 @@
+[
+  {
+    "query": "A person walking a dog in the park",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "red sedan",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked by the person"
+          }
+        },
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking the dog"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red sedan"
+          }
+        }
+      ],
+      "actions": [
+        "person walking the dog",
+        "dog being walked",
+        "red sedan parked"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.06060606060606061,
+      "issues": []
+    }
+  },
+  {
+    "query": "A red car parked near a tree",
+    "output": {
+      "scene_description": "A red BMW car parked near a tree",
+      "objects": [
+        {
+          "name": "red BMW car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "type": "string",
+            "position": "near the red BMW car",
+            "color": ""
+          }
+        }
+      ],
+      "actions": [
+        "driven by an enthusiast or collector"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.07142857142857142,
+      "issues": []
+    }
+  },
+  {
+    "query": "A group of kids playing football",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "red sedan",
+          "attributes": {
+            "color": "red",
+            "position": "parked on the side of a road"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "multicolored",
+            "position": "playing football in an open grassy area"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "in the background"
+          }
+        }
+      ],
+      "actions": [
+        "kids playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.04411764705882353,
+      "issues": []
+    }
+  }
+]

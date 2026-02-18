@@ -1,6 +1,9 @@
 import json
 import os
 from statistics import mean
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 INPUT_DIR = "experiments"
 OUT_JSON = "experiments/multimodal_comparison_summary.json"
