@@ -1,101 +1,112 @@
-# Structured LLM/VLM Dataset Generation & Evaluation Pipeline
+# Reliability-Aware Multimodal Structured Generation Framework
 
-A modular framework for **reliable structured dataset generation using LLMs/ VLMs**, with schema enforcement, grounding control, and automated evaluation.
+A modular, experiment-driven framework for **structured JSON generation using LLMs and VLMs**, with schema enforcement, multimodal grounding, retrieval control, and automated evaluation.
 
 ---
 
 ## 📌 Motivation
 
-Large Language Models (LLMs) are frequently used for synthetic dataset generation. However, raw LLM outputs are:
+LLMs are increasingly used for synthetic dataset generation and structured annotation. However, raw LLM outputs suffer from:
 
-- Structurally inconsistent  
-- Prone to malformed JSON  
-- Susceptible to hallucination  
-- Difficult to evaluate systematically  
+- ❌ Malformed JSON
+- ❌ Missing schema fields
+- ❌ Hallucinated entities
+- ❌ Retrieval contamination
+- ❌ Multimodal drift
 
-This project transforms uncontrolled LLM generation into a **validated, repair-aware, measurable pipeline** suitable for structured annotation workflows.
+This project converts uncontrolled LLM/VLM generation into a:
 
----
-
-## 🎯 Core Idea
-
-Instead of simply prompting an LLM and saving outputs, this system enforces:
-
-1. Structured JSON schema validation  
-2. Automatic JSON repair  
-3. Validation-aware retry loops  
-4. Deterministic structural enforcement  
-5. Grounded generation via RAG + HyDE  
-6. Semantic alignment scoring  
-7. Automated ablation experiments  
-
-The result is a **controlled structured generation system**, not just prompt engineering.
+> Controlled, validated, repair-aware, and experimentally measurable system.
 
 ---
 
-## 🏗️ Architecture
+## 🎯 Project Objective
+
+Design a **robust multimodal structured generation pipeline** that:
+
+1. Enforces strict JSON schema compliance  
+2. Automatically repairs malformed outputs  
+3. Controls retrieval grounding  
+4. Integrates image-based VLM context  
+5. Quantifies semantic alignment  
+6. Enables controlled ablation experiments  
+
+---
+
+## 🏗️ System Architecture
 
 ```
 
-User Query
+Text Query
 ↓
-HyDE (Query Expansion)
+(Optional) Matched Image
 ↓
-RAG Retrieval (TF-IDF with similarity filtering)
+VLM Caption Extraction (LLaVA 7B)
 ↓
-LLM Structured JSON Generation (Ollama - LLaMA3 8B)
+HyDE Query Expansion
 ↓
-JSON Extraction + Repair
+Retrieval Module
+├── TF-IDF
+└── Embedding Retrieval (BGE-small)
+↓
+LLM Structured JSON Generation (LLaMA3 8B)
+↓
+JSON Extraction
+↓
+Automatic Repair Loop
 ↓
 Schema Validation
 ↓
-Validation-Aware Retry
-↓
-Deterministic Schema Enforcement
+Deterministic Enforcement
 ↓
 Evaluation Metrics
 ↓
-Experiment Logging & Summary
+Stage-wise Experiment Logging
 
 ```
 
 ---
 
-## ⚙️ Features
+## ⚙️ Core Features
 
-### ✅ Structured Output Enforcement
-- Strict JSON schema
-- Required fields validation
+### ✅ Strict Structured Generation
+- JSON schema enforcement
 - Nested attribute validation
+- Required field guarantees
+- Deterministic fallback filling
 
-### 🔁 Automatic Repair Mechanisms
+### 🔁 Multi-Layer Repair Mechanism
 - Malformed JSON self-correction
-- Validation-aware structural repair
-- Deterministic fallback enforcement
+- Validation-aware repair loop
+- Deterministic schema completion
+
+### 🔍 Retrieval Grounding
+- TF-IDF retrieval
+- Embedding-based retrieval (BAAI/bge-small-en-v1.5)
+- Similarity threshold filtering
+- Retrieval ablation support
+
+### 🖼 Multimodal Integration
+- LLaVA 7B image caption extraction
+- Matched image-query experiments
+- Cross-modal grounding evaluation
+- Multimodal drift analysis
 
 ### 📊 Evaluation Metrics
 - Structural consistency score
 - Query-object alignment score
 - JSON validity rate
-- Failure logging taxonomy
+- Stage-wise comparison statistics
 
-### 🔍 Grounding Control
-- Optional HyDE expansion
-- TF-IDF retrieval augmentation
-- Similarity threshold filtering
-- RAG ablation support
-
-### 🧪 Automatic Experiment Summarization
-- Generates summary JSON
-- Generates Markdown report
-- Computes:
-  - Validity rate
-  - Average structural score
-  - Average semantic alignment score
+### 🧪 Controlled Experimental Framework
+- Stage-based execution
+- Embedding vs TF-IDF comparison
+- Vision vs non-vision comparison
+- Automated Markdown summary generation
 
 ---
 
-## 📂 Project Structure
+## 📂 Updated Project Structure
 
 ```
 
@@ -104,23 +115,31 @@ vlm_dataset_generation/
 ├── pipeline/
 │   ├── generator.py
 │   ├── rag_module.py
+│   ├── embedding_module.py
+│   ├── vlm_module.py
 │   ├── hyde.py
 │   ├── validator.py
 │   ├── evaluator.py
 │
 ├── scripts/
-│   ├── run_ablation.py
-│   ├── summarize_ablation.py
+│   ├── run_multimodal_stages.py
+│   ├── summarize_multimodal.py
+│
+├── images/
+│   ├── dog.jpg
+│   ├── car.jpg
+│   └── football.jpg
 │
 ├── data/
 │   ├── raw_queries.json
-│   ├── generated_outputs.json
 │   └── logs/
 │
 ├── experiments/
-│   ├── ablation_results.json
-│   ├── ablation_summary.json
-│   └── ablation_summary.md
+│   ├── stage1_embedding_only.json
+│   ├── stage2_embedding_plus_vlm_matched.json
+│   ├── stage3_tfidf_rag.json
+│   ├── multimodal_comparison_summary.json
+│   └── multimodal_comparison.md
 │
 └── README.md
 
@@ -128,137 +147,104 @@ vlm_dataset_generation/
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run Multimodal Study
 
-### 1️⃣ Generate Structured Outputs
+### 1️⃣ Run Controlled Stage Experiments
 
 ```bash
-python -m pipeline.generator
+python scripts/run_multimodal_stages.py
 ````
 
-Outputs saved to:
+This executes:
 
-```
-data/generated_outputs.json
-```
+* Stage 1 — Embedding Retrieval Only
+* Stage 2 — Embedding + Matched VLM Grounding
+* Stage 3 — TF-IDF Retrieval
 
 ---
 
-### 2️⃣ Run Ablation Study
+### 2️⃣ Generate Stage Comparison
 
 ```bash
-python scripts/run_ablation.py
+python scripts/summarize_multimodal.py
+```
+
+Outputs:
+
+```
+experiments/multimodal_comparison_summary.json
+experiments/multimodal_comparison.md
 ```
 
 ---
 
-### 3️⃣ Generate Automatic Summary
+## 🔬 Multimodal Grounding Study
 
-```bash
-python scripts/summarize_ablation.py
-```
+We conduct controlled experiments across three configurations:
 
-Produces:
+| Stage   | Retrieval | Vision | Purpose                       |
+| ------- | --------- | ------ | ----------------------------- |
+| Stage 1 | Embedding | ❌      | Baseline semantic grounding   |
+| Stage 2 | Embedding | ✅      | Multimodal grounding impact   |
+| Stage 3 | TF-IDF    | ❌      | Retrieval comparison baseline |
 
-```
-experiments/ablation_summary.json
-experiments/ablation_summary.md
-```
+### Example Observations
 
----
-
-## 📈 Example Output
-
-```json
-{
-  "scene_description": "A group of children playing football in a park.",
-  "objects": [
-    {
-      "name": "football",
-      "attributes": {
-        "color": "brown",
-        "position": "on the grass"
-      }
-    }
-  ],
-  "actions": ["kicking the ball"]
-}
-```
+* Structural reliability remains stable (repair system effective).
+* Naïve multimodal fusion can introduce semantic drift.
+* Controlled retrieval improves alignment stability.
+* Vision grounding requires relevance filtering to prevent contamination.
 
 ---
 
-## 🔬 Ablation Study
+## 🧠 Key Experimental Insight
 
-We evaluate the effect of retrieval grounding:
+This project demonstrates that:
 
-| Setting         | Validity Rate | Avg Structural | Avg Alignment |
-| --------------- | ------------- | -------------- | ------------- |
-| No RAG          | 1.0           | 1.0            | 0.62          |
-| Top-1 RAG       | 1.0           | 1.0            | 0.71          |
-| Top-3 RAG       | 1.0           | 1.0            | 0.48          |
-| Thresholded RAG | 1.0           | 1.0            | 0.69          |
+> Structural reliability can be enforced deterministically, but semantic grounding requires careful multimodal and retrieval control.
 
-Observations:
+The study highlights trade-offs between:
 
-* Unfiltered multi-document retrieval increases semantic drift.
-* Threshold filtering improves grounding discipline.
-* Structural reliability remains stable due to repair loops.
-
----
-
-## 🧠 What Makes This Different
-
-Most LLM-based dataset projects:
-
-* Do not validate outputs
-* Do not repair malformed JSON
-* Do not measure semantic drift
-* Do not run controlled ablations
-
-This project introduces:
-
-* Generation control
-* Structural enforcement
-* Failure-aware retry
-* Grounding discipline
-* Reproducible evaluation
+* Retrieval breadth vs semantic precision
+* Vision fusion vs contextual contamination
+* Embedding retrieval vs lexical retrieval
 
 ---
 
 ## 💻 System Configuration
 
-* Model: LLaMA3 8B (via Ollama)
-* GPU: RTX 3050 6GB
-* RAM: 16GB
-* Retrieval: TF-IDF (lightweight, CPU-friendly)
-
-Designed to run efficiently on consumer hardware.
+* **LLM:** LLaMA3 8B (Ollama)
+* **VLM:** LLaVA 7B
+* **Embedding Model:** BAAI/bge-small-en-v1.5
+* **GPU:** RTX 3050 6GB
+* **RAM:** 16GB
+* Designed for consumer-grade hardware experimentation
 
 ---
 
-## 📌 Current Scope
+## 📌 Scope
 
 This project focuses on:
 
 * Structured scene annotation
-* Controlled JSON generation
-* Grounded retrieval experiments
-* Evaluation methodology
+* Multimodal grounding analysis
+* Retrieval-controlled generation
+* Reliability-aware design
 
 It does NOT:
 
-* Fine-tune models
-* Use large-scale datasets
+* Fine-tune foundation models
 * Claim production deployment
+* Use large-scale datasets
 
 ---
 
-## 🔮 Future Work
+## 🔮 Future Directions
 
-* Embedding-based retrieval (BGE-small)
-* Hallucination detection metric
-* Multimodal VLM integration
-* Visualization dashboard
+* Embedding similarity gating for caption inclusion
+* Hallucination rate metric
+* Object-level grounding verification
+* Hybrid retrieval fusion
 * Workshop paper submission
 
 ---
