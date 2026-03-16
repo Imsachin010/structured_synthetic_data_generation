@@ -19,15 +19,18 @@ os.makedirs(OUT_DIR, exist_ok=True)
 # Matched Image Mapping
 # ----------------------------
 def get_image_for_query(query):
-    mapping = {
-        "A person walking a dog in the park": "dog.jpg",
-        "A red car parked near a tree": "car.jpg",
-        "A group of kids playing football": "football.jpg"
-    }
-
-    filename = mapping.get(query)
-    if filename:
-        return os.path.abspath(os.path.join(IMAGE_DIR, filename))
+    query_lower = query.lower()
+    
+    # 5 queries for dog.jpg
+    if "dog" in query_lower:
+        return os.path.abspath(os.path.join(IMAGE_DIR, "dog.jpg"))
+    # 5 queries for car.jpg
+    elif "car" in query_lower:
+        return os.path.abspath(os.path.join(IMAGE_DIR, "car.jpg"))
+    # 5 queries for football.jpg
+    elif "football" in query_lower or "kids playing" in query_lower:
+        return os.path.abspath(os.path.join(IMAGE_DIR, "football.jpg"))
+    
     return None
 
 
@@ -36,7 +39,7 @@ def load_queries():
         return json.load(f)
 
 
-def run_stage(stage_name, use_embedding, use_rag, use_vlm):
+def run_stage(stage_name, use_embedding, use_rag, use_vlm, enforce_schema=True):
     print(f"\nRunning {stage_name}...")
 
     queries = load_queries()
@@ -67,6 +70,7 @@ def run_stage(stage_name, use_embedding, use_rag, use_vlm):
             embedding_retriever=embedding_retriever,
             rag_top=3,
             rag_threshold=0.3,
+            enforce_schema=enforce_schema
         )
 
         results.append({
@@ -82,6 +86,15 @@ def run_stage(stage_name, use_embedding, use_rag, use_vlm):
 
 
 if __name__ == "__main__":
+
+    # Stage 0 — No Enforcement Baseline
+    run_stage(
+        stage_name="stage0_baseline",
+        use_embedding=True,  # baseline standard
+        use_rag=False,
+        use_vlm=False,
+        enforce_schema=False
+    )
 
     # Stage 1 — Embedding Only
     run_stage(

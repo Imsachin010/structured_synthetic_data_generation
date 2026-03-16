@@ -1,0 +1,1705 @@
+[
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 1",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-02-20T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            640,
+            480
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian_1",
+            "type": "human",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north"
+              },
+              {
+                "key": "speed",
+                "value": "1.2 m/s"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "error": "validation_error",
+      "details": [
+        "scene.entities.0.attributes.0: 'confidence' is a required property",
+        "scene.entities.0.attributes.1: 'confidence' is a required property"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 2,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-20T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [640, 480],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 m/s\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 656)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-20T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 m/s\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-20T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 m/s\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 2",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly_cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer_1",
+            "type": "animal",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white_tailed_deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "activity",
+                "value": "grazing",
+                "confidence": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5006093382835388,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 3",
+    "output": {
+      "metadata": {
+        "timestamp": "2022-07-25T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot-1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "attributes": [
+              {
+                "key": "arm_status",
+                "value": "active",
+                "confidence": 0.9
+              },
+              {
+                "key": "temperature",
+                "value": "25\u00b0C",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.529146671295166,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"metadata\": {\n    \"timestamp\": \"2022-07-25T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot-1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [100, 200, 300, 400],\n        \"attributes\": [\n          {\n            \"key\": \"arm_status\",\n            \"value\": \"active\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"temperature\",\n            \"value\": \"25\u00b0C\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 31 column 8 (char 639)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 4",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 32 column 8 (char 771)",
+      "failure_modes": [
+        "malformed_json"
+      ]
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 5",
+    "output": {
+      "metadata": {
+        "timestamp": "2023-09-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 24
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer_1",
+            "type": "mammal",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "red deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4940606355667114,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 6",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "attributes": [
+              {
+                "key": "arm_status",
+                "value": "operational",
+                "confidence": 0.9
+              }
+            ]
+          },
+          {
+            "id": "scientist_1",
+            "type": "human",
+            "bounding_box": [
+              500,
+              600,
+              700,
+              800
+            ],
+            "attributes": [
+              {
+                "key": "role",
+                "value": "researcher",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5179365277290344,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"1643723400\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [100, 200, 300, 400],\n        \"attributes\": [\n          {\n            \"key\": \"arm_status\",\n            \"value\": \"operational\",\n            \"confidence\": 0.9\n          }\n        ]\n      },\n      {\n        \"id\": \"scientist_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [500, 600, 700, 800],\n        \"attributes\": [\n          {\n            \"key\": \"role\",\n            \"value\": \"researcher\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 39 column 8 (char 807)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 7",
+    "output": {
+      "metadata": {
+        "timestamp": "2023-03-15T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            640,
+            480
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian_1",
+            "type": "human",
+            "bounding_box": [
+              10,
+              20,
+              30,
+              40
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north",
+                "confidence": 0.8
+              },
+              {
+                "key": "speed",
+                "value": "2.5 km/h",
+                "confidence": 0.7
+              }
+            ]
+          },
+          {
+            "id": "pedestrian_2",
+            "type": "human",
+            "bounding_box": [
+              50,
+              60,
+              70,
+              80
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "south",
+                "confidence": 0.9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5305725336074829,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"metadata\": {\n    \"timestamp\": \"2023-03-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [640, 480],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [10, 20, 30, 40],\n        \"attributes\": [\n          {\"key\": \"direction\", \"value\": \"north\", \"confidence\": 0.8},\n          {\"key\": \"speed\", \"value\": \"2.5 km/h\", \"confidence\": 0.7}\n        ]\n      },\n      {\n        \"id\": \"pedestrian_2\",\n        \"type\": \"human\",\n        \"bounding_box\": [50, 60, 70, 80],\n        \"attributes\": [\n          {\"key\": \"direction\", \"value\": \"south\", \"confidence\": 0.9}",
+            "error": "Expecting ',' delimiter: line 29 column 68 (char 735)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 8",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 32 column 8 (char 773)",
+      "failure_modes": [
+        "malformed_json"
+      ]
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 9",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-02-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot-arm-1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              0.5,
+              0.2,
+              0.8,
+              0.7
+            ],
+            "attributes": [
+              {
+                "key": "arm_state",
+                "value": "moving",
+                "confidence": 0.9
+              },
+              {
+                "key": "object_detected",
+                "value": "true",
+                "confidence": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5271110534667969,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot-arm-1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [0.5, 0.2, 0.8, 0.7],\n        \"attributes\": [\n          {\"key\": \"arm_state\", \"value\": \"moving\", \"confidence\": 0.9},\n          {\"key\": \"object_detected\", \"value\": \"true\", \"confidence\": 1}\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 24 column 8 (char 568)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        1920,\n        1080\n      ],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot-arm-1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [\n          0.5,\n          0.2,\n          0.8,\n          0.7\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"arm_state\",\n            \"value\": \"moving\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"object_detected\",\n            \"value\": true,\n            \"confidence\": 1\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.1.value: True is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 10",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-02-15T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian1",
+            "type": "pedestrian",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north",
+                "confidence": 0.9
+              },
+              {
+                "key": "speed",
+                "value": "1.5",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5352715253829956,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian1\",\n        \"type\": \"pedestrian\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.5\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 658)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 11",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2022-10-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 24
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer-1",
+            "type": "deer",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4840196967124939,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 12",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 36 column 12 (char 776)",
+      "failure_modes": [
+        "malformed_json"
+      ]
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 13",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 30 column 69 (char 764)",
+      "failure_modes": [
+        "malformed_json"
+      ]
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 14",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2022-09-15T10:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 24
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "entity-1",
+            "type": "deer",
+            "bounding_box": [
+              -0.5,
+              -0.2,
+              0.3,
+              0.8
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "mood",
+                "value": "relaxed",
+                "confidence": 0.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4914323091506958,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 15",
+    "output": {
+      "metadata": {
+        "timestamp": "2023-02-20T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic arm",
+            "bounding_box": [
+              0.5,
+              0.2,
+              0.8,
+              0.7
+            ],
+            "attributes": [
+              {
+                "key": "arm_type",
+                "value": "linear",
+                "confidence": 0.9
+              },
+              {
+                "key": "end_effector",
+                "value": "gripper",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5330048203468323,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"metadata\": {\n    \"timestamp\": \"2023-02-20T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic arm\",\n        \"bounding_box\": [0.5, 0.2, 0.8, 0.7],\n        \"attributes\": [\n          {\n            \"key\": \"arm_type\",\n            \"value\": \"linear\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"end_effector\",\n            \"value\": \"gripper\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 31 column 8 (char 645)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 16",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-03-15T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            640,
+            480
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian_1",
+            "type": "person",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north"
+              },
+              {
+                "key": "speed",
+                "value": "1.2 km/h"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "error": "validation_error",
+      "details": [
+        "scene.entities.0.attributes.0: 'confidence' is a required property",
+        "scene.entities.0.attributes.1: 'confidence' is a required property"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 2,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-03-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [640, 480],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"person\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 km/h\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 658)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-03-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"person\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 km/h\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-03-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"person\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.2 km/h\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 17",
+    "output": {
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer-1",
+            "type": "mammal",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4964321553707123,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 18",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-03-16T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "indoor"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              0.5,
+              0.2,
+              0.7,
+              0.8
+            ],
+            "attributes": [
+              {
+                "key": "arm_state",
+                "value": "idle",
+                "confidence": 0.9
+              },
+              {
+                "key": "battery_level",
+                "value": "75%",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5244038105010986,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-03-16T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"indoor\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [0.5, 0.2, 0.7, 0.8],\n        \"attributes\": [\n          {\n            \"key\": \"arm_state\",\n            \"value\": \"idle\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"battery_level\",\n            \"value\": \"75%\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 667)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 19",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-03-15T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian_1",
+            "type": "human",
+            "bounding_box": [
+              100.0,
+              200.0,
+              150.0,
+              250.0
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north",
+                "confidence": 0.8
+              },
+              {
+                "key": "speed",
+                "value": "3.5 km/h",
+                "confidence": 0.9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5269252061843872,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-03-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\",\n            \"confidence\": 0.8\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"3.5 km/h\",\n            \"confidence\": 0.9\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 659)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 20",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2022-11-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer-1",
+            "type": "animal",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "roe deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.49093788862228394,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2022-11-15T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"partly cloudy\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"deer-1\",\n        \"type\": \"animal\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"species\",\n            \"value\": \"roe deer\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"age\",\n            \"value\": \"adult\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 653)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 21",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot_1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "attributes": [
+              {
+                "key": "arm_state",
+                "value": "idle",
+                "confidence": 0.9
+              },
+              {
+                "key": "tool_attached",
+                "value": "screwdriver",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5224737524986267,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"1643723400\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [100, 200, 300, 400],\n        \"attributes\": [\n          {\n            \"key\": \"arm_state\",\n            \"value\": \"idle\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"tool_attached\",\n            \"value\": \"screwdriver\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 655)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 22",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2023-02-15T23:45:00Z",
+        "camera_info": {
+          "resolution": [
+            640,
+            480
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "pedestrian_1",
+            "type": "human",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north"
+              },
+              {
+                "key": "speed",
+                "value": "1.5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "error": "validation_error",
+      "details": [
+        "scene.entities.0.attributes.0: 'confidence' is a required property",
+        "scene.entities.0.attributes.1: 'confidence' is a required property"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 2,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [640, 480],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.5\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 652)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.5\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T23:45:00Z\",\n    \"camera_info\": {\n      \"resolution\": [\n        640,\n        480\n      ],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"pedestrian_1\",\n        \"type\": \"human\",\n        \"bounding_box\": [\n          100,\n          200,\n          150,\n          250\n        ],\n        \"attributes\": [\n          {\n            \"key\": \"direction\",\n            \"value\": \"north\"\n          },\n          {\n            \"key\": \"speed\",\n            \"value\": \"1.5\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+            "error": "scene.entities.0.attributes.0: 'confidence' is a required property; scene.entities.0.attributes.1: 'confidence' is a required property"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 23",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2022-11-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 24
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer-12345",
+            "type": "mammal",
+            "bounding_box": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.48289942741394043,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 24",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "indoor"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic_arm",
+            "bounding_box": [
+              0,
+              0,
+              100,
+              100
+            ],
+            "attributes": [
+              {
+                "key": "arm_state",
+                "value": "moving",
+                "confidence": 0.9
+              },
+              {
+                "key": "object_grasp",
+                "value": "pipette",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5184650421142578,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"1643723400\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"indoor\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic_arm\",\n        \"bounding_box\": [0, 0, 100, 100],\n        \"attributes\": [\n          {\n            \"key\": \"arm_state\",\n            \"value\": \"moving\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"object_grasp\",\n            \"value\": \"pipette\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 653)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 25",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 32 column 8 (char 774)",
+      "failure_modes": [
+        "malformed_json"
+      ]
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 26",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer-1",
+            "type": "mammal",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "activity",
+                "value": "grazing",
+                "confidence": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4799651503562927,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 27",
+    "output": {
+      "metadata": {
+        "timestamp": "2023-02-20T14:30:00",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic arm",
+            "bounding_box": [
+              0.5,
+              0.2,
+              0.7,
+              0.8
+            ],
+            "attributes": [
+              {
+                "key": "arm_type",
+                "value": "linear",
+                "confidence": 0.9
+              },
+              {
+                "key": "end_effector",
+                "value": "gripper",
+                "confidence": 0.95
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.5143246054649353,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"metadata\": {\n    \"timestamp\": \"2023-02-20T14:30:00\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic arm\",\n        \"bounding_box\": [0.5, 0.2, 0.7, 0.8],\n        \"attributes\": [\n          {\"key\": \"arm_type\", \"value\": \"linear\", \"confidence\": 0.9},\n          {\"key\": \"end_effector\", \"value\": \"gripper\", \"confidence\": 0.95}\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 23 column 8 (char 549)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A busy city intersection at night with neon lights and multiple pedestrians and cars. Variation 28",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "1643723400",
+        "camera_info": {
+          "resolution": [
+            640,
+            480
+          ],
+          "fps": 30
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "artificial",
+          "weather": "clear"
+        },
+        "entities": [
+          {
+            "id": "ped1",
+            "type": "pedestrian",
+            "bounding_box": [
+              100,
+              200,
+              150,
+              250
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "north",
+                "confidence": 0.9
+              },
+              {
+                "key": "speed",
+                "value": "1.2",
+                "confidence": 0.8
+              }
+            ]
+          },
+          {
+            "id": "ped2",
+            "type": "pedestrian",
+            "bounding_box": [
+              300,
+              400,
+              350,
+              450
+            ],
+            "attributes": [
+              {
+                "key": "direction",
+                "value": "south",
+                "confidence": 0.7
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.528292715549469,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"1643723400\",\n    \"camera_info\": {\n      \"resolution\": [640, 480],\n      \"fps\": 30\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"artificial\",\n      \"weather\": \"clear\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"ped1\",\n        \"type\": \"pedestrian\",\n        \"bounding_box\": [100, 200, 150, 250],\n        \"attributes\": [\n          {\"key\": \"direction\", \"value\": \"north\", \"confidence\": 0.9},\n          {\"key\": \"speed\", \"value\": \"1.2\", \"confidence\": 0.8}\n        ]\n      },\n      {\n        \"id\": \"ped2\",\n        \"type\": \"pedestrian\",\n        \"bounding_box\": [300, 400, 350, 450],\n        \"attributes\": [\n          {\"key\": \"direction\", \"value\": \"south\", \"confidence\": 0.7}",
+            "error": "Expecting ',' delimiter: line 30 column 68 (char 742)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A quiet forest path in autumn with falling leaves and a deer grazing. Variation 29",
+    "output": {
+      "type": "object",
+      "metadata": {
+        "timestamp": "2022-11-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 24
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "partly cloudy"
+        },
+        "entities": [
+          {
+            "id": "deer_1",
+            "type": "deer",
+            "bounding_box": [
+              100,
+              100,
+              150,
+              200
+            ],
+            "attributes": [
+              {
+                "key": "species",
+                "value": "white-tailed deer",
+                "confidence": 0.9
+              },
+              {
+                "key": "age",
+                "value": "adult",
+                "confidence": 0.8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.4789389967918396,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"type\": \"object\",\n  \"metadata\": {\n    \"timestamp\": \"2022-11-15T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 24\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"partly cloudy\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"deer_1\",\n        \"type\": \"deer\",\n        \"bounding_box\": [100, 100, 150, 200],\n        \"attributes\": [\n          {\n            \"key\": \"species\",\n            \"value\": \"white-tailed deer\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"age\",\n            \"value\": \"adult\",\n            \"confidence\": 0.8\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 32 column 8 (char 660)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A high-tech laboratory with glowing screens, robotic arms, and scientists in white coats. Variation 30",
+    "output": {
+      "metadata": {
+        "timestamp": "2023-02-15T14:30:00Z",
+        "camera_info": {
+          "resolution": [
+            1920,
+            1080
+          ],
+          "fps": 60.0
+        }
+      },
+      "scene": {
+        "environment": {
+          "lighting": "sunny",
+          "weather": "indoor"
+        },
+        "entities": [
+          {
+            "id": "robot_arm_1",
+            "type": "robotic arm",
+            "bounding_box": [
+              0.2,
+              0.3,
+              0.4,
+              0.5
+            ],
+            "attributes": [
+              {
+                "key": "arm_state",
+                "value": "idle",
+                "confidence": 0.9
+              },
+              {
+                "key": "temperature",
+                "value": "25\u00b0C",
+                "confidence": 1.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "info": {
+      "score": 0,
+      "alignment_score": 0.521072506904602,
+      "issues": [
+        "no objects",
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"metadata\": {\n    \"timestamp\": \"2023-02-15T14:30:00Z\",\n    \"camera_info\": {\n      \"resolution\": [1920, 1080],\n      \"fps\": 60\n    }\n  },\n  \"scene\": {\n    \"environment\": {\n      \"lighting\": \"sunny\",\n      \"weather\": \"indoor\"\n    },\n    \"entities\": [\n      {\n        \"id\": \"robot_arm_1\",\n        \"type\": \"robotic arm\",\n        \"bounding_box\": [0.2, 0.3, 0.4, 0.5],\n        \"attributes\": [\n          {\n            \"key\": \"arm_state\",\n            \"value\": \" idle\",\n            \"confidence\": 0.9\n          },\n          {\n            \"key\": \"temperature\",\n            \"value\": \"25\u00b0C\",\n            \"confidence\": 1.0\n          }\n        ]\n      }",
+            "error": "Expecting ',' delimiter: line 31 column 8 (char 642)"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -41,19 +41,26 @@ def log_error(error_type, message, output=None, metadata=None):
     with open(LOG_PATH, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
 
-def query_alignment_score(query, output_json):
+def query_alignment_score(query, parsed):
     """
-    Measures word overlap between query and generated object names.
-    Detects semantic drift / hallucination.
+    Semantic alignment between query and generated structured output.
+    Uses sentence embeddings instead of token overlap.
     """
-    query_words = set(query.lower().split())
 
-    object_words = set()
-    for obj in output_json.get("objects", []):
-        object_words.update(obj["name"].lower().split())
+    scene = parsed.get("scene_description", "")
 
-    if len(query_words) == 0:
-        return 0.0
+    objects = " ".join(
+        obj.get("name", "")
+        for obj in parsed.get("objects", [])
+    )
 
-    overlap = query_words.intersection(object_words)
-    return len(overlap) / len(query_words)
+    actions = " ".join(parsed.get("actions", []))
+
+    generated_text = f"{scene} {objects} {actions}"
+
+    q_emb = semantic_model.encode([query])
+    g_emb = semantic_model.encode([generated_text])
+
+    score = cosine_similarity(q_emb, g_emb)[0][0]
+
+    return float(score)

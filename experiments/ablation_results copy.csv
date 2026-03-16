@@ -1,0 +1,301 @@
+query,stage,valid,struct_score,align_score,repairs
+A person looking at near a tree in a classroom,embedding_only,1,0.5,0.25,0
+A person looking at near a tree in a classroom,embedding_plus_vlm,1,0.5,0.25,0
+A person looking at near a tree in a classroom,tfidf_rag,0,0,0,0
+A person standing near a bicycle in a classroom,embedding_only,1,1.0,0.2857142857142857,0
+A person standing near a bicycle in a classroom,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person standing near a bicycle in a classroom,tfidf_rag,1,1.0,0.2857142857142857,0
+A person running near a bench in a classroom,embedding_only,0,0,0,0
+A person running near a bench in a classroom,embedding_plus_vlm,0,0,0,0
+A person running near a bench in a classroom,tfidf_rag,0,0,0,0
+A person talking near a bicycle in a street,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a bicycle in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a bicycle in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person running near a tree in a street,embedding_only,1,0.5,0.14285714285714285,0
+A person running near a tree in a street,embedding_plus_vlm,1,1.0,0.14285714285714285,0
+A person running near a tree in a street,tfidf_rag,1,0.5,0.14285714285714285,0
+A person walking near a bicycle in a shopping mall,embedding_only,1,0.5,0.25,0
+A person walking near a bicycle in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person walking near a bicycle in a shopping mall,tfidf_rag,1,1.0,0.25,0
+A person looking at near a dog in a classroom,embedding_only,1,1.0,0.25,0
+A person looking at near a dog in a classroom,embedding_plus_vlm,1,0.5,0.375,0
+A person looking at near a dog in a classroom,tfidf_rag,1,1.0,0.375,0
+A person playing near a phone in a office,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a phone in a office,embedding_plus_vlm,0,0,0,0
+A person playing near a phone in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person playing near a bus in a parking lot,embedding_only,1,0.5,0.25,0
+A person playing near a bus in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a bus in a parking lot,tfidf_rag,1,1.0,0.25,0
+A person talking near a phone in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person talking near a phone in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a phone in a playground,tfidf_rag,1,1.0,0.2857142857142857,0
+A person looking at near a bicycle in a classroom,embedding_only,1,0.5,0.125,0
+A person looking at near a bicycle in a classroom,embedding_plus_vlm,1,0.5,0.125,0
+A person looking at near a bicycle in a classroom,tfidf_rag,1,0.5,0.25,0
+A person sitting near a backpack in a shopping mall,embedding_only,1,0.5,0.5,0
+A person sitting near a backpack in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person sitting near a backpack in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person playing near a dog in a office,embedding_only,0,0,0,0
+A person playing near a dog in a office,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a dog in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person sitting near a laptop in a playground,embedding_only,1,1.0,0.14285714285714285,0
+A person sitting near a laptop in a playground,embedding_plus_vlm,1,0.5,0.14285714285714285,0
+A person sitting near a laptop in a playground,tfidf_rag,1,0.5,0.42857142857142855,0
+A person looking at near a laptop in a playground,embedding_only,1,0.5,0.25,0
+A person looking at near a laptop in a playground,embedding_plus_vlm,1,0.5,0.25,0
+A person looking at near a laptop in a playground,tfidf_rag,1,0.5,0.25,0
+A person running near a phone in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person running near a phone in a office,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person running near a phone in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person sitting near a bicycle in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a playground,tfidf_rag,1,0.5,0.2857142857142857,0
+A person running near a cat in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person running near a cat in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person running near a cat in a playground,tfidf_rag,1,0.5,0.2857142857142857,0
+A person standing near a bicycle in a parking lot,embedding_only,1,1.0,0.25,0
+A person standing near a bicycle in a parking lot,embedding_plus_vlm,1,1.0,0.25,0
+A person standing near a bicycle in a parking lot,tfidf_rag,1,0.5,0.25,0
+A person talking near a bench in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a bench in a office,embedding_plus_vlm,1,1.0,0.14285714285714285,0
+A person talking near a bench in a office,tfidf_rag,0,0,0,0
+A person standing near a bench in a office,embedding_only,1,0.5,0.2857142857142857,0
+A person standing near a bench in a office,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person standing near a bench in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a bus in a park,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a bus in a park,embedding_plus_vlm,1,0.5,0.14285714285714285,0
+A person talking near a bus in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a phone in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person walking near a phone in a classroom,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a phone in a classroom,tfidf_rag,1,1.0,0.2857142857142857,0
+A person running near a bench in a parking lot,embedding_only,1,0.5,0.25,0
+A person running near a bench in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person running near a bench in a parking lot,tfidf_rag,0,0,0,0
+A person running near a bus in a office,embedding_only,1,0.5,0.2857142857142857,0
+A person running near a bus in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person running near a bus in a office,tfidf_rag,1,0.5,0.2857142857142857,0
+A person standing near a bicycle in a park,embedding_only,1,1.0,0.2857142857142857,0
+A person standing near a bicycle in a park,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person standing near a bicycle in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a phone in a park,embedding_only,1,0.5,0.2857142857142857,0
+A person walking near a phone in a park,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a phone in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person running near a bus in a shopping mall,embedding_only,1,0.5,0.25,0
+A person running near a bus in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person running near a bus in a shopping mall,tfidf_rag,1,1.0,0.25,0
+A person playing near a bench in a shopping mall,embedding_only,1,0.5,0.25,0
+A person playing near a bench in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a bench in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person playing near a car in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a car in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a car in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person walking near a backpack in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person walking near a backpack in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a backpack in a street,tfidf_rag,1,0.5,0.2857142857142857,0
+A person playing near a laptop in a shopping mall,embedding_only,1,0.5,0.25,0
+A person playing near a laptop in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a laptop in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person walking near a bus in a office,embedding_only,1,1.0,0.42857142857142855,0
+A person walking near a bus in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a bus in a office,tfidf_rag,1,1.0,0.42857142857142855,0
+A person sitting near a dog in a shopping mall,embedding_only,1,1.0,0.25,0
+A person sitting near a dog in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person sitting near a dog in a shopping mall,tfidf_rag,1,1.0,0.25,0
+A person looking at near a laptop in a classroom,embedding_only,1,1.0,0.25,0
+A person looking at near a laptop in a classroom,embedding_plus_vlm,1,1.0,0.25,0
+A person looking at near a laptop in a classroom,tfidf_rag,1,1.0,0.25,0
+A person walking near a car in a street,embedding_only,1,1.0,0.2857142857142857,0
+A person walking near a car in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person walking near a car in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person playing near a cat in a playground,embedding_only,1,1.0,0.2857142857142857,0
+A person playing near a cat in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a cat in a playground,tfidf_rag,1,0.5,0.2857142857142857,0
+A person looking at near a bench in a shopping mall,embedding_only,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a shopping mall,embedding_plus_vlm,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a shopping mall,tfidf_rag,1,0.5,0.2222222222222222,0
+A person talking near a laptop in a parking lot,embedding_only,1,0.5,0.25,0
+A person talking near a laptop in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person talking near a laptop in a parking lot,tfidf_rag,1,0.5,0.25,0
+A person running near a backpack in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person running near a backpack in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person running near a backpack in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a car in a street,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a car in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a car in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a cat in a street,embedding_only,1,0.5,0.42857142857142855,0
+A person talking near a cat in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a cat in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a laptop in a parking lot,embedding_only,1,0.5,0.25,0
+A person walking near a laptop in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person walking near a laptop in a parking lot,tfidf_rag,1,0.5,0.25,0
+A person looking at near a bench in a parking lot,embedding_only,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a parking lot,embedding_plus_vlm,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a parking lot,tfidf_rag,1,0.5,0.2222222222222222,0
+A person standing near a bicycle in a shopping mall,embedding_only,1,1.0,0.25,0
+A person standing near a bicycle in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person standing near a bicycle in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person talking near a laptop in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person talking near a laptop in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a laptop in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person playing near a tree in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a tree in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a tree in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a playground,tfidf_rag,1,1.0,0.2857142857142857,0
+A person sitting near a dog in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person sitting near a dog in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person sitting near a dog in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a car in a classroom,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a car in a classroom,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a car in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person sitting near a car in a park,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a car in a park,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a car in a park,tfidf_rag,1,0.5,0.2857142857142857,0
+A person looking at near a laptop in a shopping mall,embedding_only,0,0,0,0
+A person looking at near a laptop in a shopping mall,embedding_plus_vlm,1,0.5,0.2222222222222222,0
+A person looking at near a laptop in a shopping mall,tfidf_rag,1,0.5,0.1111111111111111,0
+A person sitting near a backpack in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a backpack in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a backpack in a playground,tfidf_rag,1,0.5,0.14285714285714285,0
+A person looking at near a bus in a park,embedding_only,1,0.5,0.25,0
+A person looking at near a bus in a park,embedding_plus_vlm,1,1.0,0.25,0
+A person looking at near a bus in a park,tfidf_rag,1,0.5,0.25,0
+A person playing near a dog in a street,embedding_only,1,0.5,0.14285714285714285,0
+A person playing near a dog in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person playing near a dog in a street,tfidf_rag,1,0.5,0.2857142857142857,0
+A person playing near a car in a park,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a car in a park,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a car in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a tree in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person talking near a tree in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a tree in a classroom,tfidf_rag,1,1.0,0.42857142857142855,0
+A person standing near a car in a shopping mall,embedding_only,1,0.5,0.25,0
+A person standing near a car in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person standing near a car in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person running near a bench in a parking lot,embedding_only,1,1.0,0.25,0
+A person running near a bench in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person running near a bench in a parking lot,tfidf_rag,1,1.0,0.25,0
+A person walking near a phone in a playground,embedding_only,1,1.0,0.2857142857142857,0
+A person walking near a phone in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person walking near a phone in a playground,tfidf_rag,1,0.5,0.2857142857142857,0
+A person sitting near a car in a classroom,embedding_only,1,1.0,0.2857142857142857,0
+A person sitting near a car in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a car in a classroom,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a cat in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a cat in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a cat in a office,tfidf_rag,1,0.5,0.42857142857142855,0
+A person playing near a laptop in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a laptop in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a laptop in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person playing near a cat in a shopping mall,embedding_only,1,1.0,0.25,0
+A person playing near a cat in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a cat in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person looking at near a bench in a park,embedding_only,1,0.5,0.125,0
+A person looking at near a bench in a park,embedding_plus_vlm,1,0.5,0.25,0
+A person looking at near a bench in a park,tfidf_rag,0,0,0,0
+A person playing near a tree in a shopping mall,embedding_only,1,0.5,0.25,0
+A person playing near a tree in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a tree in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person looking at near a car in a classroom,embedding_only,1,0.5,0.25,0
+A person looking at near a car in a classroom,embedding_plus_vlm,1,1.0,0.25,0
+A person looking at near a car in a classroom,tfidf_rag,1,0.5,0.25,0
+A person playing near a cat in a shopping mall,embedding_only,1,1.0,0.25,0
+A person playing near a cat in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person playing near a cat in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person walking near a laptop in a office,embedding_only,0,0,0,0
+A person walking near a laptop in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a laptop in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person standing near a bench in a classroom,embedding_only,1,1.0,0.2857142857142857,0
+A person standing near a bench in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person standing near a bench in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person standing near a tree in a parking lot,embedding_only,1,0.5,0.25,0
+A person standing near a tree in a parking lot,embedding_plus_vlm,1,1.0,0.25,0
+A person standing near a tree in a parking lot,tfidf_rag,1,1.0,0.25,0
+A person playing near a bus in a playground,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a bus in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a bus in a playground,tfidf_rag,1,1.0,0.14285714285714285,0
+A person sitting near a bus in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person sitting near a bus in a office,embedding_plus_vlm,0,0,0,0
+A person sitting near a bus in a office,tfidf_rag,1,0.5,0.14285714285714285,0
+A person talking near a tree in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a tree in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a tree in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person talking near a tree in a street,embedding_only,1,1.0,0.2857142857142857,0
+A person talking near a tree in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a tree in a street,tfidf_rag,1,0.5,0.2857142857142857,0
+A person playing near a bicycle in a park,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a bicycle in a park,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a bicycle in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a phone in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person walking near a phone in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a phone in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a dog in a shopping mall,embedding_only,1,0.5,0.25,0
+A person walking near a dog in a shopping mall,embedding_plus_vlm,1,1.0,0.25,0
+A person walking near a dog in a shopping mall,tfidf_rag,1,1.0,0.25,0
+A person sitting near a laptop in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a laptop in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a laptop in a street,tfidf_rag,1,0.5,0.2857142857142857,0
+A person running near a car in a classroom,embedding_only,0,0,0,0
+A person running near a car in a classroom,embedding_plus_vlm,1,0.5,0.14285714285714285,0
+A person running near a car in a classroom,tfidf_rag,1,0.5,0.14285714285714285,0
+A person playing near a bicycle in a street,embedding_only,1,1.0,0.2857142857142857,0
+A person playing near a bicycle in a street,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a bicycle in a street,tfidf_rag,1,0.5,0.2857142857142857,0
+A person sitting near a bench in a parking lot,embedding_only,1,0.5,0.25,0
+A person sitting near a bench in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person sitting near a bench in a parking lot,tfidf_rag,1,0.5,0.25,0
+A person talking near a tree in a office,embedding_only,1,0.5,0.2857142857142857,0
+A person talking near a tree in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person talking near a tree in a office,tfidf_rag,1,0.5,0.2857142857142857,0
+A person playing near a bus in a shopping mall,embedding_only,1,0.5,0.25,0
+A person playing near a bus in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person playing near a bus in a shopping mall,tfidf_rag,1,0.5,0.25,0
+A person talking near a laptop in a classroom,embedding_only,1,0.5,0.2857142857142857,0
+A person talking near a laptop in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person talking near a laptop in a classroom,tfidf_rag,1,1.0,0.2857142857142857,0
+A person walking near a car in a park,embedding_only,1,0.5,0.2857142857142857,0
+A person walking near a car in a park,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person walking near a car in a park,tfidf_rag,1,0.5,0.2857142857142857,0
+A person looking at near a car in a office,embedding_only,1,1.0,0.25,0
+A person looking at near a car in a office,embedding_plus_vlm,1,1.0,0.25,0
+A person looking at near a car in a office,tfidf_rag,1,1.0,0.25,0
+A person sitting near a bicycle in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person sitting near a bicycle in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person sitting near a bicycle in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person sitting near a dog in a park,embedding_only,1,0.5,0.42857142857142855,0
+A person sitting near a dog in a park,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person sitting near a dog in a park,tfidf_rag,1,1.0,0.2857142857142857,0
+A person standing near a dog in a classroom,embedding_only,1,1.0,0.2857142857142857,0
+A person standing near a dog in a classroom,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person standing near a dog in a classroom,tfidf_rag,1,0.5,0.2857142857142857,0
+A person standing near a car in a office,embedding_only,1,1.0,0.2857142857142857,0
+A person standing near a car in a office,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person standing near a car in a office,tfidf_rag,1,1.0,0.2857142857142857,0
+A person looking at near a backpack in a classroom,embedding_only,1,1.0,0.125,0
+A person looking at near a backpack in a classroom,embedding_plus_vlm,1,0.5,0.125,0
+A person looking at near a backpack in a classroom,tfidf_rag,1,0.5,0.125,0
+A person walking near a bus in a parking lot,embedding_only,1,1.0,0.25,0
+A person walking near a bus in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person walking near a bus in a parking lot,tfidf_rag,1,1.0,0.25,0
+A person running near a car in a shopping mall,embedding_only,1,0.5,0.25,0
+A person running near a car in a shopping mall,embedding_plus_vlm,1,0.5,0.25,0
+A person running near a car in a shopping mall,tfidf_rag,1,1.0,0.25,0
+A person walking near a bench in a parking lot,embedding_only,1,0.5,0.25,0
+A person walking near a bench in a parking lot,embedding_plus_vlm,1,0.5,0.25,0
+A person walking near a bench in a parking lot,tfidf_rag,1,0.5,0.125,0
+A person looking at near a bench in a shopping mall,embedding_only,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a shopping mall,embedding_plus_vlm,1,0.5,0.2222222222222222,0
+A person looking at near a bench in a shopping mall,tfidf_rag,1,0.5,0.2222222222222222,0
+A person looking at near a laptop in a classroom,embedding_only,1,0.5,0.25,0
+A person looking at near a laptop in a classroom,embedding_plus_vlm,1,0.5,0.25,0
+A person looking at near a laptop in a classroom,tfidf_rag,1,1.0,0.25,0
+A person talking near a backpack in a parking lot,embedding_only,1,0.5,0.125,0
+A person talking near a backpack in a parking lot,embedding_plus_vlm,1,1.0,0.125,0
+A person talking near a backpack in a parking lot,tfidf_rag,1,1.0,0.25,0
+A person playing near a backpack in a street,embedding_only,1,0.5,0.2857142857142857,0
+A person playing near a backpack in a street,embedding_plus_vlm,1,1.0,0.2857142857142857,0
+A person playing near a backpack in a street,tfidf_rag,1,1.0,0.2857142857142857,0
+A person playing near a backpack in a playground,embedding_only,1,1.0,0.2857142857142857,0
+A person playing near a backpack in a playground,embedding_plus_vlm,1,0.5,0.2857142857142857,0
+A person playing near a backpack in a playground,tfidf_rag,1,1.0,0.2857142857142857,0

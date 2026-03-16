@@ -35,13 +35,16 @@ SCHEMA = {
 
 validator = Draft7Validator(SCHEMA)
 
-def validate_output(output_json):
+def validate_output(output_json, schema=None):
     """
     Validate JSON and return (is_valid, errors_list)
     errors_list contains strings describing each validation error.
     """
+    validation_schema = schema if schema else SCHEMA
+    temp_validator = Draft7Validator(validation_schema) if schema else validator
+
     errors = []
-    for err in validator.iter_errors(output_json):
+    for err in temp_validator.iter_errors(output_json):
         # create human readable path + message
         path = ".".join([str(p) for p in err.absolute_path])
         if path:

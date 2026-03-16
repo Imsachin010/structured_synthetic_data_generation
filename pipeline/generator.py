@@ -99,6 +99,9 @@ def generate_scene(
     llm_fn=None,
     rag_top=3,
     rag_threshold=0.2,
+    enforce_schema=True,
+    eval_schema=None,
+    eval_repair_prompt=None,
 ):
     llm_fn = llm_fn or llm_generate
     rag = rag or SimpleRAG.from_file(RAW_QUERIES)
@@ -142,13 +145,39 @@ def generate_scene(
 
     context_text = "\n".join(context_parts)
 
-    prompt = BASE_PROMPT.format(
-        query=query + ("\nContext:\n" + context_text if context_text else "")
-    )
+    query_with_context = query + ("\nContext:\n" + context_text if context_text else "")
+
+    if eval_schema:
+        prompt = f"""
+You are a structured data generator.
+
+Return ONLY valid JSON.
+Do NOT include explanations.
+Do NOT include markdown.
+Do NOT include backticks.
+
+The JSON must follow this schema exactly:
+
+{json.dumps(eval_schema, indent=2)}
+
+User query:
+{query_with_context}
+"""
+    else:
+        prompt = BASE_PROMPT.format(query=query_with_context)
 
     # ----------------------------
     # JSON Parse + Repair Loop
     # ----------------------------
+    repair_attempts = {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+    }
+    
+    parsed = None
+    failure_modes = []
+    
     for attempt in range(MAX_RETRIES + 1):
 
         raw_response = llm_fn(prompt)
@@ -166,8 +195,15 @@ def generate_scene(
                     output=raw_response,
                     metadata={"query": query},
                 )
-                return None, {"error": "json_parse_error", "details": str(e)}
+                failure_modes.append("malformed_json")
+                return None, {"error": "json_parse_error", "details": str(e), "failure_modes": failure_modes}
 
+            error_msg = str(e)
+            repair_attempts["repair_trace"].append({
+                "layer": "json_parse",
+                "raw_output": raw_response,
+                "error": error_msg
+            })
             prompt = f"""
 The following JSON is malformed.
 Fix it and return ONLY valid JSON.
@@ -175,22 +211,82 @@ Fix it and return ONLY valid JSON.
 Malformed JSON:
 {raw_response}
 """
+            repair_attempts["json_repair_attempts"] += 1
+
+    # ----------------------------
+    # Escaping Enforcement
+    # ----------------------------
+    if not enforce_schema:
+        # Check validation manually to record failure modes for baseline
+        is_valid, errors = validate_output(parsed, schema=eval_schema) if parsed else (False, ["JSON Parse Failed"])
+        if not is_valid:
+            for err in errors:
+                err_lower = err.lower()
+                if "missing" in err_lower or "required" in err_lower:
+                    failure_modes.append("missing_required_field")
+                elif "type" in err_lower:
+                    failure_modes.append("wrong_type")
+                else:
+                    failure_modes.append("other")
+        
+        # Deduplicate failure modes
+        failure_modes = list(set(failure_modes))
+        
+        # ----------------------------
+        # Evaluation (No Enforcement)
+        # ----------------------------
+        score, issues = consistency_score(parsed) if parsed else (0, [])
+        alignment = query_alignment_score(query, parsed) if parsed else 0
+
+        return parsed, {
+            "score": score,
+            "alignment_score": alignment,
+            "issues": issues,
+            "repair_attempts": repair_attempts,
+            "failure_modes": failure_modes
+        }
 
     # ----------------------------
     # Deterministic Enforcement
     # ----------------------------
-    parsed = enforce_minimum_schema(parsed)
+    if not eval_schema:
+        parsed = enforce_minimum_schema(parsed)
 
     # ----------------------------
     # Schema Validation + Repair
     # ----------------------------
-    is_valid, errors = validate_output(parsed)
+    is_valid, errors = validate_output(parsed, schema=eval_schema)
 
     if not is_valid:
 
         for attempt in range(MAX_RETRIES):
+            
+            repair_attempts["repair_trace"].append({
+                "layer": "schema_validation",
+                "raw_output": json.dumps(parsed, indent=2),
+                "error": "; ".join(errors)
+            })
 
-            repair_prompt = f"""
+            if eval_repair_prompt:
+                repair_prompt = eval_repair_prompt.format(errors=errors, json_dump=json.dumps(parsed, indent=2))
+            else:
+                if eval_schema:
+                    repair_prompt = f"""
+The following JSON is structurally invalid based on the exact schema provided.
+
+Validation errors:
+{errors}
+
+Fix the JSON so it conforms exactly to this schema:
+{json.dumps(eval_schema, indent=2)}
+
+Return ONLY valid JSON.
+
+JSON:
+{json.dumps(parsed, indent=2)}
+"""
+                else:
+                    repair_prompt = f"""
 The following JSON is structurally invalid.
 
 Validation errors:
@@ -210,14 +306,16 @@ JSON:
 
             raw_response = llm_fn(repair_prompt)
             raw_response = extract_json_block(raw_response)
+            repair_attempts["schema_repair_attempts"] += 1
 
             try:
                 parsed = json.loads(raw_response)
-                parsed = enforce_minimum_schema(parsed)
+                if not eval_schema:
+                    parsed = enforce_minimum_schema(parsed)
             except:
                 continue
 
-            is_valid, errors = validate_output(parsed)
+            is_valid, errors = validate_output(parsed, schema=eval_schema)
             if is_valid:
                 break
 
@@ -228,7 +326,7 @@ JSON:
                 output=parsed,
                 metadata={"query": query},
             )
-            return parsed, {"error": "validation_error", "details": errors}
+            return parsed, {"error": "validation_error", "details": errors, "repair_attempts": repair_attempts}
 
     # ----------------------------
     # Evaluation
@@ -240,6 +338,7 @@ JSON:
         "score": score,
         "alignment_score": alignment,
         "issues": issues,
+        "repair_attempts": repair_attempts,
     }
 
 
