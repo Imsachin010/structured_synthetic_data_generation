@@ -73,7 +73,8 @@ def llm_generate(prompt):
             ],
             options={
                 "temperature": 0.3,
-                "num_predict": 1024,
+                #"num_predict": 1024,
+                "num_predict": 256,
             },
         )
 

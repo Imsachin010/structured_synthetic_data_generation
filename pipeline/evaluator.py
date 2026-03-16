@@ -2,6 +2,11 @@
 import os
 import json
 from datetime import datetime
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Lightweight semantic encoder
+semantic_model = SentenceTransformer("BAAI/bge-small-en-v1.5")
 
 LOG_PATH = "data/logs/errors.txt"
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
