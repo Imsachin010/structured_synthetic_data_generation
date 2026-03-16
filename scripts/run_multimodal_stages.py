@@ -96,6 +96,7 @@ if __name__ == "__main__":
         enforce_schema=False
     )
 
+    '''
     # Stage 1 — Embedding Only
     run_stage(
         stage_name="stage1_embedding_only",
@@ -119,3 +120,4 @@ if __name__ == "__main__":
         use_rag=True,
         use_vlm=False
     )
+    '''
