@@ -88,36 +88,39 @@ def run_stage(stage_name, use_embedding, use_rag, use_vlm, enforce_schema=True):
 if __name__ == "__main__":
 
     # Stage 0 — No Enforcement Baseline
-    run_stage(
-        stage_name="stage0_baseline",
-        use_embedding=True,  # baseline standard
-        use_rag=False,
-        use_vlm=False,
-        enforce_schema=False
-    )
+    # run_stage(
+    #     stage_name="stage0_baseline",
+    #     use_embedding=True,  # baseline standard
+    #     use_rag=False,
+    #     use_vlm=False,
+    #     enforce_schema=False
+    # )
 
-    '''
+    
     # Stage 1 — Embedding Only
     run_stage(
         stage_name="stage1_embedding_only",
         use_embedding=True,
         use_rag=False,
-        use_vlm=False
+        use_vlm=False,
+        enforce_schema=True
     )
 
     # Stage 2 — Embedding + Matched VLM
-    run_stage(
-        stage_name="stage2_embedding_plus_vlm_matched",
-        use_embedding=True,
-        use_rag=False,
-        use_vlm=True
-    )
+    # run_stage(
+    #     stage_name="stage2_embedding_plus_vlm_matched",
+    #     use_embedding=True,
+    #     use_rag=False,
+    #     use_vlm=True,
+    #     enforce_schema=True
+    # )
 
     # Stage 3 — TF-IDF Only
     run_stage(
         stage_name="stage3_tfidf_rag",
         use_embedding=False,
         use_rag=True,
-        use_vlm=False
+        use_vlm=False,
+        enforce_schema=True
     )
-    '''
+

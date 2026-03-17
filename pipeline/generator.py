@@ -51,6 +51,8 @@ def enforce_minimum_schema(parsed):
     return parsed
 
 
+import ollama
+
 # ----------------------------
 # LLM Adapter
 # ----------------------------
@@ -73,16 +75,14 @@ def llm_generate(prompt):
             ],
             options={
                 "temperature": 0.3,
-                #"num_predict": 1024,
                 "num_predict": 256,
             },
         )
-
         return response["message"]["content"]
-
     except Exception as e:
         log_error("ollama_runtime_error", str(e))
         raise
+
 
 
 # ----------------------------

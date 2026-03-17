@@ -1,13 +1,168 @@
 [
   {
-    "query": "A person walking a dog in the park",
+    "query": "A person walking a dog in the park scene 1",
     "output": {
-      "scene_description": "A sunny afternoon, a person wearing casual clothing and carrying a leash walks their energetic golden retriever around the park. The atmosphere is peaceful with birds chirping and children playing in the distance.",
+      "scene_description": "A person walking a dog in the park",
       "objects": [
         {
           "name": "person",
           "attributes": {
-            "color": "casual clothing",
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7809447050094604,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A person walking a dog in the park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": [\n    \"walking\",\n    \"being walked\",\n    \"playing football\"\n  ]\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 2",
+    "output": {
+      "scene_description": "A scenic park with a few trees, a small clearing, and a bright red sports car parked nearby. The car's shiny exterior catches the eye amidst the lush greenery.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog in a park",
+        "children playing football in a field"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7362416982650757,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 3",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a friendly game of football in a local park.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "nearby"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked by a person in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7313287258148193,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a friendly game of football in a local park.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"nearby\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked by a person in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 800)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 4",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
             "position": "walking"
           }
         },
@@ -15,11 +170,587 @@
           "name": "dog",
           "attributes": {
             "color": "golden retriever",
-            "position": "being walked"
+            "position": "trotting alongside"
           }
         },
         {
           "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7533141374588013,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 5",
+    "output": {
+      "scene_description": "scenic parking lot with trees",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "in parking lot"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7476959228515625,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"scenic parking lot with trees\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in parking lot\"\n      }\n    }\n  ],\n  \"actions\": [\n    \"a person walking a dog\",\n    \"children playing football\"\n  ]\n}",
+            "error": "objects.1.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 6",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "various",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the car"
+          }
+        },
+        {
+          "name": "Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7402159571647644,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the car\"\n      }\n    },\n    {\n      \"name\": \"Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 832)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 7",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park, with a person strolling alongside their energetic golden retriever. The scene captures the joy and freedom of this everyday moment.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "",
+            "position": "near the red car"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "football field",
+          "attributes": {
+            "color": "",
+            "position": "in the park, with children playing"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.758683443069458,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 8",
+    "output": {
+      "scene_description": "natural scenery featuring trees",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked"
+          }
+        }
+      ],
+      "actions": [
+        "parked"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8965229988098145,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 9",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the football field"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "various",
+            "position": "being walked in the park"
+          }
+        }
+      ],
+      "actions": [
+        "playing football",
+        "walking a dog",
+        "watching the game"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7303941249847412,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 10",
+    "output": {
+      "scene_description": "A person is seen walking a small to medium-sized dog in a public park during the day.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8372014164924622,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A person is seen walking a small to medium-sized dog in a public park during the day.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"human\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 375)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 11",
+    "output": {
+      "scene_description": "A scenic parking spot featuring a bright red vehicle situated near a picturesque tree-lined area.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "string",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8319352865219116,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 12",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a friendly game of football in an open field.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the grass"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the tree"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7737711668014526,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a friendly game of football in an open field.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the grass\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing football\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the red car\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 793)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 13",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "pet",
+            "position": "being walked"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8388575911521912,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 14",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked near a majestic tree, surrounded by lush greenery and vibrant flowers. The atmosphere is serene and peaceful.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "brown",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8133538961410522,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic landscape with a bright red car parked near a majestic tree, surrounded by lush greenery and vibrant flowers. The atmosphere is serene and peaceful.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 464)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 15",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Kids",
+          "attributes": {
+            "color": "Various",
+            "position": "Playing on the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Near the red car"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "Walking with the person in the park"
+          }
+        },
+        {
+          "name": "Person",
+          "attributes": {
+            "color": "Various",
+            "position": "Walking a dog in a park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.784308671951294,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Kids\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Playing on the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Near the red car\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Walking with the person in the park\"\n      }\n    },\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Walking a dog in a park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 45 column 6 (char 894)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 16",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park, with a person strolling alongside their furry friend, enjoying the fresh air and scenic views.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "none",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
           "attributes": {
             "color": "red",
             "position": "parked near a tree"
@@ -36,30 +767,3534 @@
       "actions": [
         "walking",
         "being walked",
-        "parking",
+        "parked",
         "playing football"
       ]
     },
     "info": {
       "score": 1.0,
-      "alignment_score": 0.2857142857142857,
-      "issues": []
+      "alignment_score": 0.7331697940826416,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
     }
   },
   {
-    "query": "A red car parked near a tree",
+    "query": "A red car parked near a tree scene 17",
     "output": {
-      "scene_description": "A bright red sports car is parked beside a tall oak tree with sprawling branches. The surrounding area is quiet and peaceful.",
+      "scene_description": "A scenic area with tall trees, popular spot for outdoor activities",
+      "objects": [
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "string",
+            "position": "in the scene"
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog",
+        "Children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.6834790110588074,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 18",
+    "output": {
+      "scene_description": "A group of children, aged 10-12, are playing a game of football in an open field. The sun is shining and there's a slight breeze.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "",
+            "position": "on the grass"
+          }
+        },
+        {
+          "name": "Children playing football",
+          "attributes": {
+            "color": "",
+            "position": "scattered around the field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "",
+            "position": "in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7220696210861206,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 10-12, are playing a game of football in an open field. The sun is shining and there's a slight breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"on the grass\"\n      }\n    },\n    {\n      \"name\": \"Children playing football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"scattered around the field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 719)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 10-12, are playing a game of football in an open field. The sun is shining and there's a slight breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"on the grass\"\n      }\n    },\n    {\n      \"name\": \"Children playing football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"scattered around the field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in the park\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 19",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7859213352203369,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A person walking a dog in the park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 587)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A person walking a dog in the park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 20",
+    "output": {
+      "scene_description": "A scenic parking lot with a single red car parked near a large oak tree, surrounded by lush greenery and vibrant flowers. The sun casts a warm glow over the scene.",
       "objects": [
         {
           "name": "red car",
           "attributes": {
             "color": "red",
-            "position": "beside the tree"
+            "position": "near a large oak tree"
+          }
+        },
+        {
+          "name": "large oak tree",
+          "attributes": {
+            "type": "tree",
+            "position": "surrounded by lush greenery and vibrant flowers",
+            "color": ""
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog in a park.",
+        "Children playing football in a field."
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7812460660934448,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 21",
+    "output": {
+      "scene_description": "A group of kids aged 8-12 are playing a casual game of football in an open field on a sunny Saturday morning.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the ground"
+          }
+        },
+        {
+          "name": "Kids",
+          "attributes": {
+            "color": "Varied",
+            "position": "Playing football"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Near the field"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Varied",
+            "position": "Being walked in the park"
+          }
+        }
+      ],
+      "actions": [
+        "Chasing after the ball",
+        "Trying to score goals",
+        "Walking a dog",
+        "Playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7383649945259094,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 22",
+    "output": {
+      "scene_description": "A person, likely an adult, is seen walking a medium-sized dog of unknown breed through a serene and well-maintained park. The scene takes place during daytime hours with partial sunlight casting a warm glow.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8206398487091064,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 23",
+    "output": {
+      "scene_description": "A picturesque tree-lined scene with a serene atmosphere",
+      "objects": [
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8275488615036011,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A picturesque tree-lined scene with a serene atmosphere\",\n  \"objects\": [\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 362)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 24",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the football field"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7873766422271729,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the football field\"\n      }\n    },\n    {\n      \"name\": \"car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 743)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 25",
+    "output": {
+      "scene_description": "A sunny afternoon at the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.6893883943557739,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 26",
+    "output": {
+      "scene_description": "A scenic parking lot with a single red car parked near a large oak tree, surrounded by lush greenery and vibrant flowers. The sun casts a warm glow on the entire scene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a large oak tree"
+          }
+        },
+        {
+          "name": "large oak tree",
+          "attributes": {
+            "color": "brown",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog in a park.",
+        "Children playing football in a field."
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7758767008781433,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 27",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the grass"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "colors": [
+              "various"
+            ],
+            "position": "playing on the field",
+            "color": ""
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "nearby"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "person",
+          "attributes": {
+            "colors": [
+              "various"
+            ],
+            "position": "walking a dog in the park",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7371249794960022,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the grass\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"nearby\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"walking a dog in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 830)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 28",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park",
+      "objects": [
+        {
+          "name": "Person",
+          "attributes": {
+            "color": "human",
+            "position": "strolling leisurely"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "golden retriever",
+            "position": "trotting alongside"
+          }
+        },
+        {
+          "name": "Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "human",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7354701161384583,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park\",\n  \"objects\": [\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"strolling leisurely\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"trotting alongside\"\n      }\n    },\n    {\n      \"name\": \"Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 618)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park\",\n  \"objects\": [\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"strolling leisurely\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"trotting alongside\"\n      }\n    },\n    {\n      \"name\": \"Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 29",
+    "output": {
+      "scene_description": "A scenic parking lot with a single red car parked near a large deciduous tree. The tree's branches stretch out towards the car, creating a picturesque scene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "deciduous tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog",
+        "Children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8199198246002197,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 30",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "",
+            "position": "field"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "",
+            "position": "field"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking in the park"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7696916460990906,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking in the park\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 678)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking in the park\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'; objects.4.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 31",
+    "output": {
+      "scene_description": "A sunny afternoon at Park Scene 31. A person, likely a dog owner, is strolling with their furry companion through the lush green grass and vibrant flowers.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "colors": [
+              "various"
+            ],
+            "position": "playing football in a field",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8436720967292786,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at Park Scene 31. A person, likely a dog owner, is strolling with their furry companion through the lush green grass and vibrant flowers.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"human\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 725)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 32",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked beside a tall tree, likely in a quiet neighborhood or park.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "string",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog in a park",
+        "Children playing football in a field"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8010448217391968,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 33",
+    "output": {
+      "scene_description": "A group of kids playing football scene 33",
+      "objects": [
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "Green and white",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "Not specified",
+            "position": "In the park"
+          }
+        }
+      ],
+      "actions": [
+        "Playing football",
+        "Walking a dog"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8744845390319824,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football scene 33\",\n  \"objects\": [\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"Green and white\",\n        \"position\": \"On the field\"\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near a tree\"\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"Not specified\",\n        \"position\": \"In the park\"\n    }\n  ],\n  \"actions\": [\"Playing football\", \"Walking a dog\"]\n}",
+            "error": "Expecting property name enclosed in double quotes: line 10 column 5 (char 234)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 34",
+    "output": {
+      "scene_description": "A sunny afternoon at Park Scene 34, where a person is strolling with their loyal canine companion. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "driving away"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8301764130592346,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at Park Scene 34, where a person is strolling with their loyal canine companion. The atmosphere is peaceful and serene.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 690)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at Park Scene 34, where a person is strolling with their loyal canine companion. The atmosphere is peaceful and serene.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 35",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked next to a tall tree, surrounded by lush greenery. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "none"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7939209342002869,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 36",
+    "output": {
+      "scene_description": "A group of children, aged 8-12, are playing a casual game of football in an open field on a sunny afternoon. The scene captures their laughter and excitement as they chase each other around, kicking and throwing the ball.",
+      "objects": [
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "multicolored",
+            "position": "playing football"
+          }
+        },
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "brown",
+            "position": "being played with"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "in the park"
+          }
+        },
+        {
+          "name": "Person",
+          "attributes": {
+            "color": "human skin tone",
+            "position": "walking a dog in a park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7405582070350647,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 8-12, are playing a casual game of football in an open field on a sunny afternoon. The scene captures their laughter and excitement as they chase each other around, kicking and throwing the ball.\",\n  \"objects\": [\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football\"\n      }\n    },\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being played with\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in the park\"\n      }\n    },\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking a dog in a park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 917)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 8-12, are playing a casual game of football in an open field on a sunny afternoon. The scene captures their laughter and excitement as they chase each other around, kicking and throwing the ball.\",\n  \"objects\": [\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football\"\n      }\n    },\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being played with\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in the park\"\n      }\n    },\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking a dog in a park\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'; objects.4.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 37",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "on leash"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "playing"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.773574948310852,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 38",
+    "output": {
+      "scene_description": "A bright red sports car was parked beside a picturesque tree-lined scene. The trees were tall and green, with a few leaves rustling in the gentle breeze.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8648514747619629,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A bright red sports car was parked beside a picturesque tree-lined scene. The trees were tall and green, with a few leaves rustling in the gentle breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 458)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 39",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a friendly game of football in a local park.",
+      "objects": [
+        {
+          "name": "Football Field",
+          "attributes": {
+            "color": "Green",
+            "position": "Center"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near Tree"
+          }
+        },
+        {
+          "name": "Person Walking Dog",
+          "attributes": {
+            "color": "Varies",
+            "position": "Park Path"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7268853187561035,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a friendly game of football in a local park.\",\n  \"objects\": [\n    {\n      \"name\": \"Football Field\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Center\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near Tree\"\n      }\n    },\n    {\n      \"name\": \"Person Walking Dog\",\n      \"attributes\": {\n        \"color\": \"Varies\",\n        \"position\": \"Park Path\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 24 column 6 (char 518)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 40",
+    "output": {
+      "scene_description": "A sunny afternoon in the park, with a person strolling alongside their furry friend.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7634974718093872,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 41",
+    "output": {
+      "scene_description": "A serene tree-lined landscape with a clear blue sky",
+      "objects": [
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "beside the car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7587546706199646,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 2,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A serene tree-lined landscape with a clear blue sky\",\n  \"objects\": [\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"string\",\n        \"position\": \"parked beside the car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 355)"
+          },
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A serene tree-lined landscape with a clear blue sky\",\n  \"objects\": [\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"green\", // Assuming the correct color is green\n        \"position\": \"parked beside the car\"\n      }\n    }\n  ]\n}",
+            "error": "Expecting property name enclosed in double quotes: line 14 column 27 (char 297)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 42",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "person walking dog",
+          "attributes": {
+            "color": "various",
+            "position": "in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7782121896743774,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"person walking dog\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 611)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 43",
+    "output": {
+      "scene_description": "A sunny afternoon at Park Scene 43, where a happy individual strolls alongside their loyal canine companion, enjoying the lush greenery and vibrant atmosphere.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "none",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking the dog",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8274024724960327,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 44",
+    "output": {
+      "scene_description": "A red sports car, likely a Ferrari or Lamborghini, is parked beside a scenic landscape featuring a tall oak tree with sprawling branches and lush green leaves. The surrounding area appears to be a quiet residential street with a few houses in the distance.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
           }
         },
         {
           "name": "tall oak tree",
+          "attributes": {
+            "color": "green",
+            "position": "in the scene"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8221783638000488,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 45",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a slight breeze.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the grass"
+          }
+        },
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "Various",
+            "position": "Scattered on the field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "Various",
+            "position": "In the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7265700101852417,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a slight breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the grass\"\n      }\n    },\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Scattered on the field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"In the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 718)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 46",
+    "output": {
+      "scene_description": "A sunny afternoon in a bustling city park, with lush green grass and vibrant flowers. A person, likely a young adult, is seen strolling along a path while holding a leash attached to a playful dog.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "none",
+            "position": "strolling along a path"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "unknown",
+            "position": "attached to the person's leash"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "unknown",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking the dog",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7735939025878906,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 47",
+    "output": {
+      "scene_description": "A picturesque landscape with a bright red car parked under a canopy of lush green trees, perhaps in a quiet neighborhood or a scenic park.",
+      "objects": [
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog",
+        "Children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7678399085998535,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 48",
+    "output": {
+      "scene_description": "A group of kids playing football scene 48",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Kids",
+          "attributes": {
+            "color": "Various",
+            "position": "Playing on the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Nearby"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near the tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "Being walked by a person in the park"
+          }
+        }
+      ],
+      "actions": [
+        "Playing football",
+        "Walking a dog",
+        "Parked a car"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8598484992980957,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 49",
+    "output": {
+      "scene_description": "A sunny afternoon at Park Scene 49, with a person strolling leisurely while their furry companion, a [breed of dog], trots alongside. The scene is set amidst lush greenery and vibrant flowers.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "[breed of dog]",
+            "position": "trotting alongside"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "human",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "trotting alongside",
+        "parked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.859376072883606,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 50",
+    "output": {
+      "scene_description": "A scenic parking lot with a single red car parked near a large oak tree, surrounded by lush greenery and a few scattered leaves. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near the tree"
+          }
+        },
+        {
+          "name": "large oak tree",
+          "attributes": {
+            "color": "brown",
+            "position": "in the parking lot"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7987741231918335,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic parking lot with a single red car parked near a large oak tree, surrounded by lush greenery and a few scattered leaves. The atmosphere is peaceful and serene.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near the tree\"\n      }\n    },\n    {\n      \"name\": \"large oak tree\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"in the parking lot\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 479)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 51",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and there's a gentle breeze blowing.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "",
+            "position": "field"
+          }
+        },
+        {
+          "name": "Children playing football",
+          "attributes": {
+            "color": "various",
+            "position": "field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "",
+            "position": "park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7085195779800415,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and there's a gentle breeze blowing.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"Children playing football\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 686)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and there's a gentle breeze blowing.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"Children playing football\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"park\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 52",
+    "output": {
+      "scene_description": "A person, likely an adult, is walking their dog in a public park. The scene takes place on a sunny day with green grass and possibly some trees or benches.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "park bench",
+          "attributes": {
+            "color": "",
+            "position": "near the path"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "",
+            "position": "in the park"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "football",
+          "attributes": {
+            "color": "",
+            "position": "in the field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8374884128570557,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A person, likely an adult, is walking their dog in a public park. The scene takes place on a sunny day with green grass and possibly some trees or benches.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"park bench\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"near the path\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"in the park\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"in the field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 45 column 6 (char 941)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A person, likely an adult, is walking their dog in a public park. The scene takes place on a sunny day with green grass and possibly some trees or benches.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"park bench\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"near the path\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in the park\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"in the field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.2.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'; objects.5.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 53",
+    "output": {
+      "scene_description": "A photograph of a red car parked beside a scenic landscape featuring a tree, likely taken in a natural setting such as a park or countryside.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8748146891593933,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 2,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A photograph of a red car parked beside a scenic landscape featuring a tree, likely taken in a natural setting such as a park or countryside.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"string\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 447)"
+          },
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A photograph of a red car parked beside a scenic landscape featuring a tree, likely taken in a natural setting such as a park or countryside.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\", // assuming the color of the tree is green\n        \"position\": \"near the red car\"\n      }\n    }\n  ]\n}",
+            "error": "Expecting property name enclosed in double quotes: line 14 column 27 (char 394)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 54",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing an informal game of football in a local park on a sunny Saturday afternoon with a few adults supervising from the sidelines.",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": null,
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": null,
+            "position": "playing football on the field"
+          }
+        },
+        {
+          "name": "adults",
+          "attributes": {
+            "color": null,
+            "position": "supervising from the sidelines"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": null,
+            "position": "being walked by a person in the park"
+          }
+        }
+      ],
+      "actions": [
+        "playing football",
+        "supervising",
+        "walking a dog"
+      ]
+    },
+    "info": {
+      "error": "validation_error",
+      "details": [
+        "objects.0.attributes.color: None is not of type 'string'",
+        "objects.1.attributes.color: None is not of type 'string'",
+        "objects.2.attributes.color: None is not of type 'string'",
+        "objects.4.attributes.color: None is not of type 'string'"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 2,
+        "repair_trace": [
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing an informal game of football in a local park on a sunny Saturday afternoon with a few adults supervising from the sidelines.\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football on the field\"\n      }\n    },\n    {\n      \"name\": \"adults\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"supervising from the sidelines\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked by a person in the park\"\n      }\n    }\n  ],\n  \"actions\": [\n    \"playing football\",\n    \"supervising\",\n    \"walking a dog\"\n  ]\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.2.attributes.color: None is not of type 'string'; objects.4.attributes.color: None is not of type 'string'"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing an informal game of football in a local park on a sunny Saturday afternoon with a few adults supervising from the sidelines.\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football on the field\"\n      }\n    },\n    {\n      \"name\": \"adults\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"supervising from the sidelines\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked by a person in the park\"\n      }\n    }\n  ],\n  \"actions\": [\n    \"playing football\",\n    \"supervising\",\n    \"walking a dog\"\n  ]\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.2.attributes.color: None is not of type 'string'; objects.4.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 55",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park, where a person is strolling with their energetic golden retriever. The scene captures a moment of leisure and companionship between human and canine.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden retriever",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "human",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7872542142868042,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park, where a person is strolling with their energetic golden retriever. The scene captures a moment of leisure and companionship between human and canine.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 755)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park, where a person is strolling with their energetic golden retriever. The scene captures a moment of leisure and companionship between human and canine.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 56",
+    "output": {
+      "scene_description": "A scenic landscape with a single tree in the foreground, surrounded by lush greenery. A bright red car is parked beside the tree, its shiny surface reflecting the surrounding foliage.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "foreground"
+          }
+        }
+      ],
+      "actions": [
+        "none"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7994594573974609,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 57",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking a dog in the park"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked by person"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.777855634689331,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking a dog in the park\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked by person\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 730)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing on the field\"\n      }\n    },\n    {\n      \"name\": \"car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking a dog in the park\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"being walked by person\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'; objects.4.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 58",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "undefined",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "undefined",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.807817816734314,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A person walking a dog in the park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 600)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A person walking a dog in the park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 59",
+    "output": {
+      "scene_description": "A photograph of a bright red car parked alongside a scenic landscape featuring a single tree, likely taken in the afternoon with warm sunlight casting long shadows.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8305819034576416,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 60",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.",
+      "objects": [
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "",
+            "position": "playing football"
+          }
+        },
+        {
+          "name": "football",
+          "attributes": {
+            "color": "",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "",
+            "position": "in the park"
+          }
+        },
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking a dog in a park"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked by the person"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7363599538803101,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"kids\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football\"\n      }\n    },\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"on the field\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"in the park\"\n      }\n    },\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking a dog in a park\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"being walked by the person\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 45 column 6 (char 937)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 61",
+    "output": {
+      "scene_description": "A sunny afternoon in a bustling city park, with lush green grass and vibrant flowers. A person, likely a young adult, is strolling along a winding path while holding onto a leash, accompanied by their energetic dog.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "strolling along a winding path"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "accompanied by their energetic dog"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7783998847007751,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a bustling city park, with lush green grass and vibrant flowers. A person, likely a young adult, is strolling along a winding path while holding onto a leash, accompanied by their energetic dog.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"strolling along a winding path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"accompanied by their energetic dog\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 813)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a bustling city park, with lush green grass and vibrant flowers. A person, likely a young adult, is strolling along a winding path while holding onto a leash, accompanied by their energetic dog.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"strolling along a winding path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"accompanied by their energetic dog\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 62",
+    "output": {
+      "scene_description": "A photograph of a scenic area with a tree as its backdrop",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        }
+      ],
+      "actions": [
+        "parked"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8955350518226624,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 63",
+    "output": {
+      "scene_description": "Group of kids playing football in an open field on a sunny afternoon",
+      "objects": [
+        {
+          "name": "Football players",
+          "attributes": {
+            "color": "various",
+            "position": "playing"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "various",
+            "position": "in park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7343611717224121,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"Group of kids playing football in an open field on a sunny afternoon\",\n  \"objects\": [\n    {\n      \"name\": \"Football players\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"in park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 24 column 6 (char 513)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 64",
+    "output": {
+      "scene_description": "A sunny day at the local park, with lush green grass and vibrant flowers. A person, likely a pet owner, is seen walking their furry companion, a medium-sized dog with a wagging tail.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7617062330245972,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 65",
+    "output": {
+      "scene_description": "A photograph of a bright red car parked alongside a serene landscape featuring a majestic tree, likely taken in a scenic area with lush greenery and possibly a winding road or a clearing.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8120410442352295,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 66",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "Football Field",
+          "attributes": {
+            "color": "Green",
+            "position": "Open"
+          }
+        },
+        {
+          "name": "Kids Playing Football",
+          "attributes": {
+            "color": "Various",
+            "position": "Scattered"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near Tree"
+          }
+        },
+        {
+          "name": "Person Walking Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "In Park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7336888909339905,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"Football Field\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Open\"\n      }\n    },\n    {\n      \"name\": \"Kids Playing Football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Scattered\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near Tree\"\n      }\n    },\n    {\n      \"name\": \"Person Walking Dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"In Park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 605)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 67",
+    "output": {
+      "scene_description": "A sunny afternoon in a public park, with lush green grass and vibrant flowers. A person, likely a pet owner, is strolling along a paved path while holding a leash attached to a furry canine companion.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "paved path"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "leash attached to person"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8037291169166565,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a public park, with lush green grass and vibrant flowers. A person, likely a pet owner, is strolling along a paved path while holding a leash attached to a furry canine companion.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"paved path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"unknown\",\n        \"position\": \"leash attached to person\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"unknown\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 779)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a public park, with lush green grass and vibrant flowers. A person, likely a pet owner, is strolling along a paved path while holding a leash attached to a furry canine companion.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"paved path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"leash attached to person\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 68",
+    "output": {
+      "scene_description": "A photograph of a bright red car parked alongside a serene landscape featuring a majestic tree, with lush greenery and a clear blue sky.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8471591472625732,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A photograph of a bright red car parked alongside a serene landscape featuring a majestic tree, with lush greenery and a clear blue sky.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 443)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 69",
+    "output": {
+      "scene_description": "A group of children, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the grass"
+          }
+        },
+        {
+          "name": "Children playing football",
+          "attributes": {
+            "color": "Various",
+            "position": "Scattered around the field"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "Red",
+            "position": "Near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "Various",
+            "position": "In the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7160469889640808,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the grass\"\n      }\n    },\n    {\n      \"name\": \"Children playing football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Scattered around the field\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near a tree\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"In the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 730)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 70",
+    "output": {
+      "scene_description": "A sunny afternoon in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "casual clothing",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "fluffy coat",
+            "position": "on a leash"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7734631299972534,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 71",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked beside a tall tree, perhaps in a quiet neighborhood or countryside setting.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "none"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8278481960296631,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 72",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the field"
+          }
+        },
+        {
+          "name": "kids",
+          "attributes": {
+            "color": "various",
+            "position": "playing on the field"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "nearby"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked in a park"
+          }
+        }
+      ],
+      "actions": [
+        "playing football",
+        "walking a dog"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.728440523147583,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 73",
+    "output": {
+      "scene_description": "A sunny afternoon in a quiet park with lush green grass and tall trees. A person is walking their medium-sized dog on a leash.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden retriever or beagle",
+            "position": "on a leash"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking the dog"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7845425605773926,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 74",
+    "output": {
+      "scene_description": "A photograph of a bright red sports car parked beside a serene tree-lined landscape, with a tranquil atmosphere and a hint of sunlight filtering through the leaves. The scene appears to be set in a quiet suburban neighborhood or a rural area.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8130447864532471,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 75",
+    "output": {
+      "scene_description": "A group of children, aged 8-12, are playing a casual game of football in an open field on a sunny afternoon. The atmosphere is lively and joyful, with laughter and shouts of excitement filling the air.",
+      "objects": [
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing football"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "person walking dog",
+          "attributes": {
+            "color": "various",
+            "position": "walking in a park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.718763530254364,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of children, aged 8-12, are playing a casual game of football in an open field on a sunny afternoon. The atmosphere is lively and joyful, with laughter and shouts of excitement filling the air.\",\n  \"objects\": [\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"playing football\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"person walking dog\",\n      \"attributes\": {\n        \"color\": \"various\",\n        \"position\": \"walking in a park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 24 column 6 (char 659)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 76",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7266750335693359,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"playing football\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 590)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"being walked\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 77",
+    "output": {
+      "scene_description": "A scenic parking spot with a bright red car parked near a picturesque tree scene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8744643926620483,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic parking spot with a bright red car parked near a picturesque tree scene.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"green\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 386)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 78",
+    "output": {
+      "scene_description": "A group of kids aged 8-12 are playing a game of football in a local park. The sun is shining, and the grass is lush green.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "Various",
+            "position": "Scattered around the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Near the park entrance"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Brown",
+            "position": "Walking with its owner in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7500245571136475,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids aged 8-12 are playing a game of football in a local park. The sun is shining, and the grass is lush green.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Scattered around the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Near the park entrance\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"Walking with its owner in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 869)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 79",
+    "output": {
+      "scene_description": "A person walking a dog in a park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "human",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "unknown",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "human",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7555725574493408,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 80",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked beside a majestic tree, surrounded by lush greenery and vibrant flowers. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        ""
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7979496717453003,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 81",
+    "output": {
+      "scene_description": "A group of kids, aged between 8-12 years old, are playing a friendly game of football in an open field.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the grass"
+          }
+        },
+        {
+          "name": "Kids",
+          "attributes": {
+            "color": "Various",
+            "position": "Playing football"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Near the red car"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "Walking with the person"
+          }
+        }
+      ],
+      "actions": [
+        "Playing football",
+        "Chasing each other",
+        "Laughing and having fun"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7502845525741577,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 82",
+    "output": {
+      "scene_description": "A sunny afternoon at the local park, with a person strolling alongside their loyal canine companion. The scene captures a moment of leisure and companionship between human and animal.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "",
+            "position": "being walked"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "being walked",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7976309061050415,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 83",
+    "output": {
+      "scene_description": "A scenic landscape with a large tree as the focal point. A red sports car is parked beside it.",
+      "objects": [
+        {
+          "name": "red sports car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "large tree",
+          "attributes": {
+            "type": "tree",
+            "position": "focal point of the scene",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.8290466070175171,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic landscape with a large tree as the focal point. A red sports car is parked beside it.\",\n  \"objects\": [\n    {\n      \"name\": \"red sports car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"large tree\",\n      \"attributes\": {\n        \"type\": \"tree\",\n        \"position\": \"focal point of the scene\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 420)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 84",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.",
+      "objects": [
+        {
+          "name": "football",
+          "attributes": {
+            "color": "brown",
+            "position": "on the grass"
+          }
+        },
+        {
+          "name": "kids playing football",
+          "attributes": {
+            "colors": [
+              "various colors"
+            ],
+            "position": "scattered around the field",
+            "color": ""
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "person walking dog",
+          "attributes": {
+            "colors": [
+              "various colors"
+            ],
+            "position": "in the park",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7730237245559692,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in an open field. The sun is shining and there's a gentle breeze.\",\n  \"objects\": [\n    {\n      \"name\": \"football\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"on the grass\"\n      }\n    },\n    {\n      \"name\": \"kids playing football\",\n      \"attributes\": {\n        \"color\": \"various colors\",\n        \"position\": \"scattered around the field\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"person walking dog\",\n      \"attributes\": {\n        \"color\": \"various colors\",\n        \"position\": \"in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 743)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 85",
+    "output": {
+      "scene_description": "A person walking a dog in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "none",
+            "position": "walking"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "none",
+            "position": "on leash"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "none",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7686887383460999,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 86",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked beside a tall tree, surrounded by lush greenery and possibly some autumnal leaves. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
           "attributes": {
             "color": "brown",
             "position": "near the red car"
@@ -70,68 +4305,654 @@
     },
     "info": {
       "score": 0.5,
-      "alignment_score": 0.5,
+      "alignment_score": 0.8042653799057007,
       "issues": [
         "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic landscape with a bright red car parked beside a tall tree, surrounded by lush greenery and possibly some autumnal leaves. The atmosphere is peaceful and serene.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 474)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 87",
+    "output": null,
+    "info": {
+      "error": "json_parse_error",
+      "details": "Expecting ',' delimiter: line 44 column 8 (char 949)",
+      "failure_modes": [
+        "malformed_json"
       ]
     }
   },
   {
-    "query": "A group of kids playing football",
+    "query": "A person walking a dog in the park scene 88",
     "output": {
-      "scene_description": "Group of kids playing football",
+      "scene_description": "A sunny afternoon at the local park, with a person strolling along the walking trail while their furry companion, a playful golden retriever, trots by their side.",
       "objects": [
         {
-          "name": "Football",
+          "name": "Person",
           "attributes": {
-            "color": "Brown",
-            "position": "Field"
+            "color": "human",
+            "position": "walking along the walking trail"
           }
         },
         {
-          "name": "Children",
+          "name": "Dog",
           "attributes": {
-            "color": "Various",
-            "position": [
-              "Field",
-              "Goal"
-            ]
+            "color": "golden retriever",
+            "position": "trotting by their side"
           }
         },
         {
           "name": "Car",
           "attributes": {
-            "color": "Red",
-            "position": "Near tree"
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Children",
+          "attributes": {
+            "color": "human",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "trotting",
+        "playing"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7694116830825806,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park, with a person strolling along the walking trail while their furry companion, a playful golden retriever, trots by their side.\",\n  \"objects\": [\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"walking along the walking trail\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"trotting by their side\"\n      }\n    },\n    {\n      \"name\": \"Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 761)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon at the local park, with a person strolling along the walking trail while their furry companion, a playful golden retriever, trots by their side.\",\n  \"objects\": [\n    {\n      \"name\": \"Person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"walking along the walking trail\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"trotting by their side\"\n      }\n    },\n    {\n      \"name\": \"Car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing football in a field\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 89",
+    "output": {
+      "scene_description": "A photograph of a bright red car parked beside a serene tree-lined landscape, likely taken in a scenic area with lush greenery and possibly a sunny day.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8214716911315918,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 90",
+    "output": {
+      "scene_description": "A group of kids playing football",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Grassy field",
+          "attributes": {
+            "color": "Green",
+            "position": "Where kids are playing football"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Brown",
+            "position": "In the park"
           }
         },
         {
           "name": "Dog",
           "attributes": {
             "color": "Unknown",
-            "position": "Walking with person"
+            "position": "Being walked by a person in a park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7560190558433533,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids playing football\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Grassy field\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Where kids are playing football\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Near a tree\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"In the park\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"Unknown\",\n        \"position\": \"Being walked by a person in a park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 757)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 91",
+    "output": {
+      "scene_description": "A person, likely an adult, is walking their dog in a public park. The scene appears to be a sunny day with green grass and possibly some trees or benches in the background.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "walking"
           }
         },
         {
-          "name": "Person",
+          "name": "dog",
           "attributes": {
-            "color": "Unknown",
-            "position": "Walking dog"
+            "color": "",
+            "position": "being walked"
           }
         }
       ],
       "actions": [
-        "Playing",
-        "Laughing",
-        "Shouting",
-        "Walking"
+        "walking a dog"
       ]
     },
     "info": {
-      "error": "validation_error",
-      "details": [
-        "objects.1.attributes.position: ['Field', 'Goal'] is not of type 'string'"
+      "score": 1.0,
+      "alignment_score": 0.8720014691352844,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 92",
+    "output": {
+      "scene_description": "A scenic parking lot with a single red car parked near a large deciduous tree, surrounded by lush greenery and possibly some autumn leaves. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "type": "deciduous",
+            "position": "near the red car",
+            "color": ""
+          }
+        }
+      ],
+      "actions": [
+        "A person walking a dog in a park",
+        "Children playing football in a field"
       ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7835718393325806,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 93",
+    "output": {
+      "scene_description": "A group of kids playing football scene",
+      "objects": [
+        {
+          "name": "children playing football",
+          "attributes": {
+            "color": "",
+            "position": "in a local park"
+          }
+        },
+        {
+          "name": "red car parked near a tree",
+          "attributes": {
+            "color": "red",
+            "position": "near a tree"
+          }
+        },
+        {
+          "name": "person walking a dog in a park",
+          "attributes": {
+            "color": "",
+            "position": "in a park"
+          }
+        }
+      ],
+      "actions": [
+        "playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7388647794723511,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 94",
+    "output": {
+      "scene_description": "A sunny afternoon in a public park, with a person strolling along a grassy path while holding a leash and accompanied by their furry canine companion. The scene is peaceful, with trees providing shade and children playing in the distance.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "unknown",
+            "position": "strolling along a grassy path"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "brown",
+            "position": "accompanied by their furry canine companion"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "various",
+            "position": "playing in the distance"
+          }
+        }
+      ],
+      "actions": [
+        "strolling",
+        "playing"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7863115072250366,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 1,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a public park, with a person strolling along a grassy path while holding a leash and accompanied by their furry canine companion. The scene is peaceful, with trees providing shade and children playing in the distance.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"strolling along a grassy path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"accompanied by their furry canine companion\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"\",\n        \"position\": \"playing in the distance\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 840)"
+          },
+          {
+            "layer": "schema_validation",
+            "raw_output": "{\n  \"scene_description\": \"A sunny afternoon in a public park, with a person strolling along a grassy path while holding a leash and accompanied by their furry canine companion. The scene is peaceful, with trees providing shade and children playing in the distance.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"strolling along a grassy path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"accompanied by their furry canine companion\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": null,\n        \"position\": \"playing in the distance\"\n      }\n    }\n  ],\n  \"actions\": []\n}",
+            "error": "objects.0.attributes.color: None is not of type 'string'; objects.1.attributes.color: None is not of type 'string'; objects.3.attributes.color: None is not of type 'string'"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 95",
+    "output": {
+      "scene_description": "A bright red sports car is parked beside a scenic tree-lined road.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "green",
+            "position": "near the road"
+          }
+        }
+      ],
+      "actions": [
+        "a person walking a dog",
+        "children playing football"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.796798586845398,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 96",
+    "output": {
+      "scene_description": "A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.",
+      "objects": [
+        {
+          "name": "Football",
+          "attributes": {
+            "color": "Brown",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "Various",
+            "position": "On the field"
+          }
+        },
+        {
+          "name": "Tree",
+          "attributes": {
+            "color": "Green",
+            "position": "Near the park"
+          }
+        },
+        {
+          "name": "Red Car",
+          "attributes": {
+            "color": "Red",
+            "position": "Parked near a tree"
+          }
+        },
+        {
+          "name": "Dog",
+          "attributes": {
+            "color": "Various",
+            "position": "Being walked in the park"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7248113751411438,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 2,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Near the park\"\n      }\n    },\n    {\n      \"name\": \"Red car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Being walked in the park\"\n      }\n    },\n    {\n      \"name\": \"Person walking dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"In the park\"\n      }",
+            "error": "Expecting ',' delimiter: line 44 column 8 (char 974)"
+          },
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A group of kids, aged 8-12, are playing a game of football in a local park. The sun is shining and the grass is lush green.\",\n  \"objects\": [\n    {\n      \"name\": \"Football\",\n      \"attributes\": {\n        \"color\": \"Brown\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Kids playing football\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"On the field\"\n      }\n    },\n    {\n      \"name\": \"Tree\",\n      \"attributes\": {\n        \"color\": \"Green\",\n        \"position\": \"Near the park\"\n      }\n    },\n    {\n      \"name\": \"Red Car\",\n      \"attributes\": {\n        \"color\": \"Red\",\n        \"position\": \"Parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"Dog\",\n      \"attributes\": {\n        \"color\": \"Various\",\n        \"position\": \"Being walked in the park\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 38 column 6 (char 839)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 97",
+    "output": {
+      "scene_description": "A sunny day at the local park, with a person strolling along a winding path while their furry companion, a playful golden retriever, trots alongside. The scene is serene and peaceful, with lush greenery and vibrant flowers adding to the idyllic atmosphere.",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "none",
+            "position": "walking along a winding path"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden retriever",
+            "position": "trotting alongside the person"
+          }
+        },
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "position": "playing football in a field",
+            "color": ""
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.7727020978927612,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A sunny day at the local park, with a person strolling along a winding path while their furry companion, a playful golden retriever, trots alongside. The scene is serene and peaceful, with lush greenery and vibrant flowers adding to the idyllic atmosphere.\",\n  \"objects\": [\n    {\n      \"name\": \"person\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"walking along a winding path\"\n      }\n    },\n    {\n      \"name\": \"dog\",\n      \"attributes\": {\n        \"color\": \"golden retriever\",\n        \"position\": \"trotting alongside the person\"\n      }\n    },\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near a tree\"\n      }\n    },\n    {\n      \"name\": \"children\",\n      \"attributes\": {\n        \"color\": \"none\",\n        \"position\": \"playing football in a field\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 31 column 6 (char 871)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A red car parked near a tree scene 98",
+    "output": {
+      "scene_description": "A scenic landscape with a bright red car parked beside a majestic tree, surrounded by lush greenery and vibrant flowers. The atmosphere is peaceful and serene.",
+      "objects": [
+        {
+          "name": "red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near the tree"
+          }
+        },
+        {
+          "name": "tree",
+          "attributes": {
+            "color": "brown",
+            "position": "near the red car"
+          }
+        }
+      ],
+      "actions": []
+    },
+    "info": {
+      "score": 0.5,
+      "alignment_score": 0.788550078868866,
+      "issues": [
+        "no actions"
+      ],
+      "repair_attempts": {
+        "json_repair_attempts": 1,
+        "schema_repair_attempts": 0,
+        "repair_trace": [
+          {
+            "layer": "json_parse",
+            "raw_output": "{\n  \"scene_description\": \"A scenic landscape with a bright red car parked beside a majestic tree, surrounded by lush greenery and vibrant flowers. The atmosphere is peaceful and serene.\",\n  \"objects\": [\n    {\n      \"name\": \"red car\",\n      \"attributes\": {\n        \"color\": \"red\",\n        \"position\": \"parked near the tree\"\n      }\n    },\n    {\n      \"name\": \"tree\",\n      \"attributes\": {\n        \"color\": \"brown\",\n        \"position\": \"near the red car\"\n      }\n    }",
+            "error": "Expecting ',' delimiter: line 17 column 6 (char 466)"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "A group of kids playing football scene 99",
+    "output": {
+      "scene_description": "A group of kids playing football scene 99",
+      "objects": [
+        {
+          "name": "Kids playing football",
+          "attributes": {
+            "color": "",
+            "position": "in a local park"
+          }
+        },
+        {
+          "name": "Red car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "Person walking dog",
+          "attributes": {
+            "color": "",
+            "position": "in a park"
+          }
+        }
+      ],
+      "actions": [
+        "playing",
+        "chasing each other"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.8693764209747314,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
+    }
+  },
+  {
+    "query": "A person walking a dog in the park scene 100",
+    "output": {
+      "scene_description": "A sunny afternoon in the park",
+      "objects": [
+        {
+          "name": "person",
+          "attributes": {
+            "color": "",
+            "position": "strolling"
+          }
+        },
+        {
+          "name": "dog",
+          "attributes": {
+            "color": "golden retriever",
+            "position": "trotting alongside"
+          }
+        },
+        {
+          "name": "car",
+          "attributes": {
+            "color": "red",
+            "position": "parked near a tree"
+          }
+        },
+        {
+          "name": "children",
+          "attributes": {
+            "color": "",
+            "position": "playing football in a field"
+          }
+        }
+      ],
+      "actions": [
+        "walking",
+        "trotting",
+        "playing",
+        "parking"
+      ]
+    },
+    "info": {
+      "score": 1.0,
+      "alignment_score": 0.7416790127754211,
+      "issues": [],
+      "repair_attempts": {
+        "json_repair_attempts": 0,
+        "schema_repair_attempts": 0,
+        "repair_trace": []
+      }
     }
   }
 ]
