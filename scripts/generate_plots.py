@@ -119,7 +119,7 @@ for bar, val in zip(bars, validity):
 # legend
 patches = [mpatches.Patch(color=RED,   label="No enforcement (Stage 0)"),
            mpatches.Patch(color=GREEN, label="With enforcement (Stages 1 & 3)")]
-ax.legend(handles=patches, fontsize=9, frameon=False)
+ax.legend(handles=patches, fontsize=9, frameon=False, loc="upper left")
 plt.tight_layout()
 out1 = os.path.join(OUT_DIR, "figure1_validity_rate.pdf")
 plt.savefig(out1, dpi=300, bbox_inches="tight")

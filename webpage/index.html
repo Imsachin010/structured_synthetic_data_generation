@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reliability-Aware Structured Synthetic Data Generation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 15% 15%, #141b29 0%, #090d14 50%, #06090f 100%);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@mui/material@5/umd/material-ui.production.min.js"></script>
+    <script src="https://unpkg.com/@emotion/react@11/dist/emotion-react.umd.min.js"></script>
+    <script src="https://unpkg.com/@emotion/styled@11/dist/emotion-styled.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const {
+        AppBar,
+        Toolbar,
+        Typography,
+        Container,
+        Box,
+        Card,
+        CardContent,
+        Grid,
+        Chip,
+        Stack,
+        Table,
+        TableBody,
+        TableCell,
+        TableContainer,
+        TableHead,
+        TableRow,
+        Paper,
+        Link,
+        Divider,
+        Button,
+        CssBaseline,
+        ThemeProvider,
+        createTheme,
+        responsiveFontSizes,
+        List,
+        ListItem,
+        ListItemText,
+      } = MaterialUI;
+      const { useEffect, useRef, useState } = React;
+
+      const metrics = [
+        { label: "Baseline Validity", value: "70.0%" },
+        { label: "Best Validity", value: "98.0%" },
+        { label: "Validity Lift", value: "+24 to +28 pp" },
+        { label: "Hardware", value: "RTX 3050 (6 GB)" },
+      ];
+
+      const stageRows = [
+        ["Stage 0 - Baseline", "None", "-", "No", "70.0%", "-"],
+        ["Stage 1 - Embedding RAG", "BGE embed", "-", "Yes", "98.0%", "0.938"],
+        ["Stage 2 - Embedding + VLM", "BGE embed", "LLaVA 7B", "Yes", "98.0%", "0.932"],
+        ["Stage 3 - TF-IDF RAG", "TF-IDF", "-", "Yes", "94.0%", "0.899"],
+      ];
+
+      const contributions = [
+        "Two-layer post-hoc repair loop with deterministic fallback",
+        "Strict Draft7 schema enforcement (additionalProperties: false)",
+        "Controlled 4-stage ablation on a shared 100-query benchmark",
+      ];
+      const PDF_FILE_PATH =
+        "./Reliability_Aware_Structured_Synthetic_Data_Generation_via_Schema_Enforcement_and_Layered_Repair.pdf";
+
+      let theme = createTheme({
+        palette: {
+          mode: "dark",
+          primary: { main: "#7ab7ff" },
+          secondary: { main: "#8bcfa9" },
+          text: { primary: "#e8edf7", secondary: "#a5afc2" },
+          divider: "rgba(170, 186, 219, 0.16)",
+          background: { default: "#090d14", paper: "#121926" },
+        },
+        shape: { borderRadius: 12 },
+        typography: {
+          fontFamily: '"Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif',
+          h4: { fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.2 },
+          h5: { fontWeight: 700, letterSpacing: "-0.01em", lineHeight: 1.25 },
+          h6: { fontWeight: 700 },
+          body1: { lineHeight: 1.65 },
+          body2: { lineHeight: 1.55 },
+        },
+        components: {
+          MuiAppBar: {
+            styleOverrides: {
+              root: {
+                backgroundColor: "#0b1018",
+                backgroundImage: "none",
+                borderBottom: "1px solid rgba(170, 186, 219, 0.16)",
+              },
+            },
+          },
+          MuiCard: {
+            styleOverrides: {
+              root: {
+                backgroundColor: "#121926",
+                border: "1px solid rgba(170, 186, 219, 0.14)",
+                backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%)",
+              },
+            },
+          },
+          MuiPaper: {
+            styleOverrides: {
+              outlined: {
+                backgroundColor: "#101722",
+                borderColor: "rgba(170, 186, 219, 0.16)",
+              },
+            },
+          },
+        },
+      });
+      theme = responsiveFontSizes(theme);
+
+      function FlowNode({ title, subtitle }) {
+        return (
+          <Paper
+            variant="outlined"
+            sx={{
+              px: { xs: 1.25, sm: 2 },
+              py: { xs: 1.1, sm: 1.5 },
+              textAlign: "center",
+              bgcolor: "background.paper",
+              borderColor: "rgba(255,255,255,0.14)",
+            }}
+          >
+            <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.92rem", sm: "1rem" } }}>{title}</Typography>
+            {subtitle && (
+              <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: "0.78rem", sm: "0.85rem" } }}>
+                {subtitle}
+              </Typography>
+            )}
+          </Paper>
+        );
+      }
+
+      function ArrowDown() {
+        return (
+          <Typography
+            sx={{
+              textAlign: "center",
+              py: { xs: 0.45, sm: 0.7 },
+              color: "text.secondary",
+              fontSize: { xs: "0.95rem", sm: "1.15rem" },
+            }}
+          >
+            {"\u2193"}
+          </Typography>
+        );
+      }
+
+      function PdfCarousel({ pdfUrl }) {
+        const canvasRef = useRef(null);
+        const wrapRef = useRef(null);
+        const [pdfDoc, setPdfDoc] = useState(null);
+        const [pageNumber, setPageNumber] = useState(1);
+        const [numPages, setNumPages] = useState(0);
+        const [isLoading, setIsLoading] = useState(true);
+        const [error, setError] = useState("");
+
+        async function loadPdfDocument(source) {
+          if (!window.pdfjsLib) {
+            throw new Error("PDF viewer library failed to load.");
+          }
+
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+          const loadingTask = window.pdfjsLib.getDocument(source);
+          return await loadingTask.promise;
+        }
+
+        useEffect(() => {
+          let isCancelled = false;
+
+          async function loadPdf() {
+            try {
+              setIsLoading(true);
+              setError("");
+              setPageNumber(1);
+              const loadedPdf = await loadPdfDocument(pdfUrl);
+              if (isCancelled) return;
+
+              setPdfDoc(loadedPdf);
+              setNumPages(loadedPdf.numPages || 0);
+            } catch (err) {
+              if (isCancelled) return;
+              const localFileHint =
+                window.location.protocol === "file:"
+                  ? " Browser blocked direct PDF loading on file://. On deployment this will work; locally run a simple server."
+                  : "";
+              setError("Unable to load PDF from path." + localFileHint);
+              setPdfDoc(null);
+              setNumPages(0);
+            } finally {
+              if (!isCancelled) setIsLoading(false);
+            }
+          }
+
+          loadPdf();
+          return () => {
+            isCancelled = true;
+          };
+        }, [pdfUrl]);
+
+        useEffect(() => {
+          let renderTask = null;
+          let isCancelled = false;
+
+          async function renderPage() {
+            if (!pdfDoc || !canvasRef.current) return;
+            const page = await pdfDoc.getPage(pageNumber);
+            if (isCancelled) return;
+
+            const baseViewport = page.getViewport({ scale: 1 });
+            const targetWidth = wrapRef.current ? wrapRef.current.clientWidth : baseViewport.width;
+            const scale = Math.max(0.35, (targetWidth - 2) / baseViewport.width);
+            const viewport = page.getViewport({ scale });
+
+            const canvas = canvasRef.current;
+            const context = canvas.getContext("2d");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            renderTask = page.render({ canvasContext: context, viewport });
+            await renderTask.promise;
+          }
+
+          renderPage().catch(() => {
+            setError("Unable to render selected page.");
+          });
+
+          return () => {
+            isCancelled = true;
+            if (renderTask && renderTask.cancel) renderTask.cancel();
+          };
+        }, [pdfDoc, pageNumber]);
+
+        return (
+          <Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.2, fontSize: { xs: "0.78rem", sm: "0.88rem" } }}>
+              Using <code>./Reliability_Aware_Structured_Synthetic_Data_Generation_via_Schema_Enforcement_and_Layered_Repair.pdf</code>.
+            </Typography>
+
+            {isLoading && (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+                Loading PDF...
+              </Typography>
+            )}
+
+            {error && (
+              <Paper variant="outlined" sx={{ p: 1.2, mb: 1.5, borderColor: "rgba(255,120,120,0.5)" }}>
+                <Typography variant="body2" sx={{ fontSize: { xs: "0.76rem", sm: "0.86rem" } }}>
+                  {error}
+                </Typography>
+              </Paper>
+            )}
+
+            <Box
+              ref={wrapRef}
+              sx={{
+                width: "100%",
+                minHeight: { xs: 200, sm: 320 },
+                p: { xs: 0.8, sm: 1 },
+                borderRadius: 1.5,
+                border: "1px solid rgba(170, 186, 219, 0.16)",
+                bgcolor: "rgba(255,255,255,0.02)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "auto",
+              }}
+            >
+              <canvas ref={canvasRef} style={{ maxWidth: "100%", height: "auto", display: pdfDoc ? "block" : "none" }} />
+              {!pdfDoc && !isLoading && !error && (
+                <Typography variant="body2" color="text.secondary">
+                  PDF will appear here.
+                </Typography>
+              )}
+            </Box>
+
+            <Stack direction="row" spacing={1} sx={{ mt: 1.4, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
+                disabled={!pdfDoc || pageNumber <= 1}
+              >
+                Previous
+              </Button>
+              <Typography variant="body2" sx={{ minWidth: 110, textAlign: "center", fontSize: { xs: "0.78rem", sm: "0.88rem" } }}>
+                Page {numPages ? pageNumber : 0} / {numPages}
+              </Typography>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={() => setPageNumber((p) => Math.min(numPages, p + 1))}
+                disabled={!pdfDoc || pageNumber >= numPages}
+              >
+                Next
+              </Button>
+              <Button component="a" href={pdfUrl} target="_blank" variant="text" size="small">
+                Open PDF
+              </Button>
+            </Stack>
+          </Box>
+        );
+      }
+
+      function App() {
+        return (
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+
+            <AppBar position="static" elevation={1}>
+              <Toolbar sx={{ justifyContent: "center", minHeight: { xs: 52, sm: 60 } }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: "0.95rem", sm: "1.1rem" }, textAlign: "center" }}>
+                  Structured Synthetic Data Generation
+                </Typography>
+              </Toolbar>
+            </AppBar>
+
+            <Container maxWidth="lg" sx={{ py: { xs: 2.2, sm: 3.2, md: 5 }, px: { xs: 1.2, sm: 2, md: 3 } }}>
+              <Card elevation={2} sx={{ mb: { xs: 2, sm: 3, md: 4 }, bgcolor: "background.paper" }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.75, md: 3.2 } }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ mb: 1, fontWeight: 700, textAlign: "center", fontSize: { xs: "1.45rem", sm: "1.95rem", md: "2.35rem" } }}
+                  >
+                    Reliability-Aware Structured Synthetic Data Generation Schema Enforcement and Layered Repair
+                  </Typography>
+                  <Typography variant="body1" sx={{ mb: 0.5, textAlign: "center", fontSize: { xs: "0.88rem", sm: "0.96rem" } }}>
+                    <strong>Sachin Mishra</strong> - IIIT Bangalore
+                  </Typography>
+                  <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    spacing={{ xs: 0.6, sm: 2 }}
+                    sx={{ flexWrap: "wrap", rowGap: 0.75, justifyContent: "center", alignItems: "center" }}
+                  >
+                    <Link href="mailto:sachin.mishra@iiitb.ac.in" underline="hover" sx={{ fontSize: { xs: "0.82rem", sm: "0.9rem" } }}>
+                      sachin.mishra@iiitb.ac.in
+                    </Link>
+                    <Link href="https://github.com/Imsachin010" target="_blank" underline="hover" sx={{ fontSize: { xs: "0.82rem", sm: "0.9rem" } }}>
+                      GitHub
+                    </Link>
+                    <Link href="https://orcid.org/0009-0006-1184-8455" target="_blank" underline="hover" sx={{ fontSize: { xs: "0.82rem", sm: "0.9rem" } }}>
+                      ORCID
+                    </Link>
+                  </Stack>
+                </CardContent>
+              </Card>
+
+              <Grid container spacing={{ xs: 1.2, sm: 2 }} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                {metrics.map((m) => (
+                  <Grid item xs={12} sm={6} md={3} key={m.label}>
+                    <Card elevation={1}>
+                      <CardContent sx={{ p: { xs: 1.6, sm: 2 } }}>
+                        <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: "0.76rem", sm: "0.84rem" } }}>
+                          {m.label}
+                        </Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: "1.05rem", sm: "1.2rem" } }}>
+                          {m.value}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 1.3, sm: 2 } }}>
+                  <Box
+                    component="img"
+                    src="./svgviewer-output.svg"
+                    alt="Pipeline Architecture Diagram"
+                    sx={{
+                      width: "100%",
+                      height: "auto",
+                      display: "block",
+                      borderRadius: 1.5,
+                      border: "1px solid rgba(170, 186, 219, 0.16)",
+                      bgcolor: "rgba(255,255,255,0.02)",
+                    }}
+                  />
+                </CardContent>
+              </Card>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    Overview
+                  </Typography>
+                  <Typography paragraph sx={{ fontSize: { xs: "0.86rem", sm: "0.95rem" } }}>
+                    This project studies how schema enforcement, retrieval grounding, and layered repair improve structured JSON generation quality from local LLMs.
+                  </Typography>
+                  <Typography paragraph sx={{ fontSize: { xs: "0.86rem", sm: "0.95rem" } }}>
+                    Main result: schema-aware repair increases validity from <strong>70%</strong> to <strong>94-98%</strong> without fine-tuning.
+                  </Typography>
+                  <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", rowGap: 1 }}>
+                    <Chip label="Local Inference (Ollama)" color="primary" size="small" />
+                    <Chip label="LLaMA3 8B + LLaVA 7B" color="secondary" size="small" />
+                    <Chip label="100 Query Benchmark" size="small" />
+                  </Stack>
+                </CardContent>
+              </Card>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    Stage Results
+                  </Typography>
+                  <TableContainer component={Paper} variant="outlined" sx={{ overflowX: "auto" }}>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>Stage</TableCell>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>Retrieval</TableCell>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>VLM</TableCell>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>Enforce</TableCell>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>Valid %</TableCell>
+                          <TableCell sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>Alignment</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {stageRows.map((row) => (
+                          <TableRow key={row[0]}>
+                            {row.map((value, cellIndex) => (
+                              <TableCell key={`${row[0]}-${cellIndex}`} sx={{ fontSize: { xs: "0.72rem", sm: "0.82rem" }, py: { xs: 0.8, sm: 1.1 }, whiteSpace: "nowrap" }}>
+                                {value}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </CardContent>
+              </Card>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    System Architecture
+                  </Typography>
+                  <Box sx={{ maxWidth: 780, mx: "auto" }}>
+                    <FlowNode title="Text Query" />
+                    <ArrowDown />
+                    <Paper
+                      variant="outlined"
+                      sx={{ p: { xs: 1.2, sm: 1.5 }, mb: 1, bgcolor: "rgba(88,166,255,0.08)", borderColor: "rgba(88,166,255,0.35)" }}
+                    >
+                      <Typography variant="body2" sx={{ textAlign: "center", fontSize: { xs: "0.76rem", sm: "0.85rem" } }}>
+                        Optional branch: Matched Image -> LLaVA 7B -> VLM Caption
+                      </Typography>
+                    </Paper>
+                    <ArrowDown />
+                    <FlowNode title="HyDE Query Expansion" />
+                    <ArrowDown />
+                    <Paper variant="outlined" sx={{ p: { xs: 1.3, sm: 2 }, textAlign: "center", borderColor: "rgba(255,255,255,0.14)" }}>
+                      <Typography sx={{ fontWeight: 600, mb: 1, fontSize: { xs: "0.9rem", sm: "1rem" } }}>Retrieval Module</Typography>
+                      <Stack direction="row" spacing={1} sx={{ justifyContent: "center", flexWrap: "wrap", rowGap: 1 }}>
+                        <Chip label="Embedding (BAAI/bge-small-en-v1.5)" color="primary" size="small" />
+                        <Chip label="TF-IDF (scikit-learn)" size="small" />
+                      </Stack>
+                    </Paper>
+                    <ArrowDown />
+                    <FlowNode title="LLM Structured Generation" subtitle="LLaMA3 8B via Ollama" />
+                    <ArrowDown />
+                    <FlowNode title="JSON Extraction" />
+                    <ArrowDown />
+                    <Paper
+                      variant="outlined"
+                      sx={{
+                        p: { xs: 1.3, sm: 2 },
+                        borderColor: "rgba(126,231,135,0.5)",
+                        bgcolor: "rgba(126,231,135,0.08)",
+                      }}
+                    >
+                      <Typography sx={{ textAlign: "center", fontWeight: 700, mb: 1, fontSize: { xs: "0.95rem", sm: "1.05rem" } }}>
+                        Multi-Layer Repair Loop
+                      </Typography>
+                      <List dense sx={{ py: 0 }}>
+                        <ListItem sx={{ py: 0.25 }}>
+                          <ListItemText
+                            primary="Layer 1: JSON parse repair (bracket fix, quote normalization)"
+                            primaryTypographyProps={{ sx: { fontSize: { xs: "0.74rem", sm: "0.84rem" } } }}
+                          />
+                        </ListItem>
+                        <ListItem sx={{ py: 0.25 }}>
+                          <ListItemText
+                            primary="Layer 2: Schema validation repair (re-prompt with error trace)"
+                            primaryTypographyProps={{ sx: { fontSize: { xs: "0.74rem", sm: "0.84rem" } } }}
+                          />
+                        </ListItem>
+                        <ListItem sx={{ py: 0.25 }}>
+                          <ListItemText
+                            primary="Fallback: Deterministic fill + repair_trace logging"
+                            primaryTypographyProps={{ sx: { fontSize: { xs: "0.74rem", sm: "0.84rem" } } }}
+                          />
+                        </ListItem>
+                      </List>
+                    </Paper>
+                    <ArrowDown />
+                    <Paper variant="outlined" sx={{ p: { xs: 1.3, sm: 2 }, borderColor: "rgba(255,255,255,0.14)" }}>
+                      <Typography sx={{ textAlign: "center", fontWeight: 600, mb: 1, fontSize: { xs: "0.9rem", sm: "1rem" } }}>Evaluation</Typography>
+                      <Stack direction="row" spacing={1} sx={{ justifyContent: "center", flexWrap: "wrap", rowGap: 1 }}>
+                        <Chip size="small" label="JSON Validity Rate" />
+                        <Chip size="small" label="Structural Consistency Score" />
+                        <Chip size="small" label="Query-Object Alignment Score" />
+                      </Stack>
+                    </Paper>
+                  </Box>
+                </CardContent>
+              </Card>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    Core Contributions
+                  </Typography>
+                  <Stack direction="column" spacing={{ xs: 0.9, sm: 1.2 }}>
+                    {contributions.map((text) => (
+                      <Box key={text} sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}>
+                        <Chip size="small" color="primary" label="Key" />
+                        <Typography sx={{ fontSize: { xs: "0.83rem", sm: "0.94rem" } }}>{text}</Typography>
+                      </Box>
+                    ))}
+                  </Stack>
+                </CardContent>
+              </Card>
+
+              <Card elevation={1} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    Quick Setup
+                  </Typography>
+                  <Paper variant="outlined" sx={{ p: { xs: 1.3, sm: 2 }, bgcolor: "rgba(255,255,255,0.04)", mb: 1.5 }}>
+                    <pre>Python 3.10+
+Ollama with llama3:8b and llava:7b
+NVIDIA GPU with 6GB+ VRAM</pre>
+                  </Paper>
+                  <Paper variant="outlined" sx={{ p: { xs: 1.3, sm: 2 }, bgcolor: "rgba(255,255,255,0.04)" }}>
+                    <pre>pip install -r requirements.txt</pre>
+                  </Paper>
+                  <Divider sx={{ my: { xs: 1.6, sm: 2.5 } }} />
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: "0.78rem", sm: "0.88rem" } }}>
+                    Sachin Mishra. 2026. Reliability-Aware Structured Synthetic Data Generation via Schema Enforcement and Layered Repair. In
+                    Workshop on Synthetic Data Generation and Management for Building AI Systems (SynthAI '26), May 31-June 05, 2026, Bengaluru,
+                    India. ACM, New York, NY, USA, 6 pages.{" "}
+                    <Link href="https://doi.org/10.1145/3814574.3816747" target="_blank">
+                      https://doi.org/10.1145/3814574.3816747
+                    </Link>
+                  </Typography>
+                </CardContent>
+              </Card>
+
+              <Card elevation={1}>
+                <CardContent sx={{ p: { xs: 2, sm: 2.6 } }}>
+                  <Typography variant="h5" sx={{ mb: 1.7, fontWeight: 700, fontSize: { xs: "1.1rem", sm: "1.45rem" } }}>
+                    Paper PDF Preview
+                  </Typography>
+                  <PdfCarousel pdfUrl={PDF_FILE_PATH} />
+                </CardContent>
+              </Card>
+            </Container>
+          </ThemeProvider>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

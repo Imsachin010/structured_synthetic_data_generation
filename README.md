@@ -295,3 +295,11 @@ This study has four acknowledged limitations:
 MIT License — see `LICENSE` for details.
 
 This repository and all its contents, including pipeline architecture, experimental design, evaluation metrics, and results, are the original work of Sachin Mishra (IIIT Bangalore). Any reproduction, derivative work, or academic use must include attribution to the author and a citation to the associated paper.
+
+## Citation
+
+If you use this work, please cite:
+
+Sachin Mishra. 2026. Reliability-Aware Structured Synthetic Data Generation via Schema Enforcement and Layered Repair. In Workshop on Synthetic Data Generation and Management for Building AI Systems (SynthAI '26), May 31-June 05, 2026, Bengaluru, India. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3814574.3816747
+
+---
