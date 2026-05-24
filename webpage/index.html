@@ -265,9 +265,11 @@
 
         return (
           <Box>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.2, fontSize: { xs: "0.78rem", sm: "0.88rem" } }}>
-              Using <code>./Reliability_Aware_Structured_Synthetic_Data_Generation_via_Schema_Enforcement_and_Layered_Repair.pdf</code>.
-            </Typography>
+            {!pdfDoc && (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1.2, fontSize: { xs: "0.78rem", sm: "0.88rem" } }}>
+                Using <code>./Reliability_Aware_Structured_Synthetic_Data_Generation_via_Schema_Enforcement_and_Layered_Repair.pdf</code>.
+              </Typography>
+            )}
 
             {isLoading && (
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
